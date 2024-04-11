@@ -17,7 +17,7 @@ The threat of HNDL attackers requires applications to switch to post-quantum sec
 
 ## Performance
 
-While the new ML-KEM mechanism is very efficient, it requires larger messages and because the ciphersuite used is hybrid, the workload increases.
+While the new ML-KEM mechanism is very efficient, it requires larger messages and because the ciphersuite used is hybrid (i.e. a combination of ML-KEM the classical x25519 KEM), the workload increases.
 
 The following tables give an overview of the performance and message sizes.
 One can clearly see an overhead from the post-quantum scheme.
@@ -45,7 +45,6 @@ While the computation complexity is not too high, and more efficient implementat
 
 Using X-Wing as KEM in MLS is the easiest solution to achieve HNDL security for secure group messaging, or any use case that uses the state synchronization protocols specified in MLS.
 
-However, there may be more efficient ways to integrate HNDL protection into MLS by making use of more lightweight KEM combiners because of the way MLS works.
-X-Wing is designed as a drop-in KEM scheme with very conservative security guarantees. In the case of MLS a custom KEM scheme may be more efficient.
+However, X-Wing is designed as a drop-in KEM scheme with very conservative security guarantees. In the context of MLS, there may be more efficient ways to integrate HNDL protection, for example, by making use of more lightweight KEM combiners, or by other means specific to MLS. In the context of the MLS working group, we are actively discussing multiple proposals for improved HNDL protection. Once more promising candidates are available, we will publish a follow-up of this post. 
 
 A new version of OpenMLS will be released later this month, which will include this new, post-quantum secure, ciphersuite.
