@@ -1,17 +1,22 @@
-baseURL = "https://openmls.tech/blog"
+baseURL = "https://blog.openmls.tech"
 languageCode = "en-us"
 title = "OpenMLS"
-theme = "hugo-theme-minos"
+theme = "hugo-papermod"
 paginate = 10
 
 [params]
-    smartToc = true
-    katex = true
+smartToc = true
+katex = true
+mainSections = ["posts"]
 
 [menu]
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
 
-  [[menu.main]]
-    identifier = "github"
-    name = "Github"
-    url = "https://github.com/openmls/openmls"
-    weight = -110
+[[menu.main]]
+identifier = "github"
+name = "Github"
+url = "https://github.com/openmls/openmls"
+weight = 2
