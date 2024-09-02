@@ -1,1 +1,1 @@
-[https://openmls.tech/blog](https://openmls.tech/blog)
+[https://blog.openmls.tech](https://blog.openmls.tech)
