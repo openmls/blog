@@ -1,0 +1,74 @@
+---
+title: "OpenMLS 0.6 released"
+date: 2024-09-xx
+tags: ["mls", "openmls", "release", "rfc9420"]
+notoc: true
+author: "Jan Winkelmann"
+---
+
+Today, we are releasing version 0.6 of OpenMLS. In this post we’ll go over the most significant changes since our last release.
+
+# New Storage Provider
+
+To make it easier to persist group state, the `KeyStoreProvider` was replaced with the more powerful `StorageProvider` trait for tracking the state of a group or a party. This includes keys, but also other group state like the ratchet tree and the group context. OpenMLS writes to the storage at the end of any successful operation. This means that if the provider is backed by some persistent memory, the entire long-lived state of OpenMLS is automatically persisted. 
+
+🔗 [Github PR][StorageProviderPR]  
+🔗 [Documentation][StorageProviderBook]
+
+# API Changes
+
+In an effort to make OpenMLS as easy to use as possible, we made some API changes to rid of a few footguns and provide better ergonomics.
+
+## A Staged API for Welcomes
+
+In the old API, it was not possible to inspect the details of a group one is invited to without joining it. There was a workaround, but v0.6 solves the problem cleanly by making joining from a Welcome message a two-stage process: First the welcome is parsed and decrypted into a `StagedWelcome`. This value can be used for inspecting the group, and then turned into a full `MlsGroup`.
+
+🔗 [Github Issue][StagedWelcomeIssue]  
+🔗 [Documentation][StagedWelcomeBook]
+
+## Split Group Configuration into separate types
+
+The `MlsGroupConfig` struct was needed both for creating a new group and for joining an existing one from a Welcome message. We replaced it with the two structs `MlsGroupCreateConfig` and `MlsGroupJoinConfig`. This removes the somewhat awkward situation that, when joining a group, the user could set config items that are only relevant to creating the group.
+
+🔗 [Github PR][ConfigSplitPR]
+
+## A Clean Way to Update the Own Leaf Node
+
+The way we handled the creation of self-update proposals was not ideal, and required us to modify the leaf node that was passed into the `propose_self_update` function. We did an overhaul of the API here and now instead pass in the information that is required to build the new leaf node (in the form of `LeafNodeParameters`), which is then created by the `propose_self_update` itself.
+
+🔗 [Github PR][LeafNodeParamsPR]
+
+## Builders, Builders, more Builders
+
+We added builders for many more types to make them more easily constructible:
+
+- `MlsGroup`
+- `KeyPackage`
+- `Capabilities`
+- `LeafNodeParameters`
+
+## Libcrux Crypto Provider and Post-Quantum Ciphersuite
+
+We added a second crypto provider, that is (for the most part) backed by libcrux instead of the RustCrypto crates. Libcrux is a high-assurance cryptographic library, which means it uses formal methods to achieve higher confidence in the correctness of the implementation.
+
+Libcrux also contains code for Kyber/ML-KEM, a public key encryption algorithm that is designed to be resistant against quantum computer attacks. We provide a ciphersuite using it in hybrid mode (i.e. together with a more established public key algorithm known to be secure against attacks with classical computers) using the XWing combiner
+
+🔗 [Blog Post][PQBlogPost]
+
+# Progress on Long-Term Efforts
+
+We started an effort to make sure that we do all the validation checks mandated by the RFC, and we do and test them. For this, we started making [a machine-readable list][validation.dhall] of all the checks, and generating an [HTML dashboard]. We started writing some new tests and referencing them in the dashboard.
+
+We also started some refactoring around the group state. There was a historic distinction between MlsGroup and CoreGroup. This distinction is making increasingly little sense, and we are in an effort to merge the two. However, since this is a core piece of the library, doing it all at once would be a very large change that may introduce a number of new bugs. In the spirit of “first make the change easy, then make the easy change”, we decided this should be a longer-term transition. We made some progress already, but CoreGroup will stick around for a little longer.
+
+Another area we made a little progress in is Wasm support. In order to keep an eye on the Wasm binary size of the OpenMLS library, we added a build on CI for some minimal Wasm bindings and fail if the gzip-compressed binary is larger than 500 kB. This means that while it will add considerable page load cost, OpenMLS can be used on the web today!
+
+[StorageProviderPR]: https://github.com/openmls/openmls/pull/1565
+[StorageProviderBook]: https://book.openmls.tech/traits/traits.html#storageprovider
+[StagedWelcomeIssue]: https://github.com/openmls/openmls/issues/1508
+[StagedWelcomeBook]: https://book.openmls.tech/user_manual/join_from_welcome.html
+[ConfigSplitPR]: https://github.com/openmls/openmls/pull/1464
+[LeafNodeParamsPR]: https://github.com/openmls/openmls/pull/1606
+[PQBlogPost]: https://blog.openmls.tech/posts/2024-04-11-pq-openmls/
+[validation.dhall]: https://github.com/openmls/validation.dhall
+[HTML dashboard]: https://validation.openmls.tech
