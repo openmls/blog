@@ -15,6 +15,8 @@ The month has been pretty quiet after the release while we started to complete
 the [semantic validation checks in OpenMLS](https://validation.openmls.tech).
 
 ### Merged PRs September 2024
+
+* #1657: [Fix checks for leaf node validation (valn01xx) and valn1207](https://github.com/openmls/openmls/pull/1657)
 * #1655: [Add check and (basic) test for check 701: remove can't contain inde to blank leaf](https://github.com/openmls/openmls/pull/1655)
 * #1653: [Fix docs](https://github.com/openmls/openmls/pull/1653)
 * #1652: [Bump crate versions for v0.6](https://github.com/openmls/openmls/pull/1652)
