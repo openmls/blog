@@ -83,7 +83,7 @@ As the following graph shows the time needed to create a group is linear in the 
 The blue line shows the actual measurements while the magenta one is a trend line showing the linear relation.
 This is what is to be expected because the performance is dominated by the creation of welcome messages, which have to be created for each member.
 
-{{< figure src="../images/group-creation.svg" title="" link="../images/group-creation.svg" >}}
+{{< figure src="../../images/group-creation.svg" title="" link="../images/group-creation.svg" >}}
 
 ### Join group
 
@@ -92,13 +92,13 @@ Note that it is not logarithmic because the tree needs to be constructed.
 This requires processing of each node in some way, which is linear in the group size.
 The blue line again shows the actual measurements while the magenta one is a trend line for the linear relation.
 
-{{< figure src="../images/join.svg" title="" link="../../images/join.svg" >}}
+{{< figure src="../../images/join.svg" title="" link="../../images/join.svg" >}}
 
 ### Update
 
 Sending and processing updates are both sub-linear in the number of group members because the number of computations depend on the height of the tree in the _base_ case.
 
-{{< figure src="../images/update.svg" title="" link="../../images/update.svg" >}}
+{{< figure src="../../images/update.svg" title="" link="../../images/update.svg" >}}
 
 In the case of a very sparse tree, which we have in the _bare_ case because every leaf only processed the welcome message, the performance of sending an update however is linear in the group size.
 When creating a commit for an update proposal the sender has to include a path and refresh the private tree.
@@ -106,8 +106,8 @@ The following two flamegraphs show the difference between the base and the bare 
 While it doesn't show directly what's going on, it can be seen that in the base case (first flamegraph) the `new_with_keys` function requires a lot more time relative to the rest of the `replace_private_tree` function.
 This is a strong indicator for where to look for the differences.
 
-{{< figure src="../images/send-update-base.png" title="" link="../images/send-update-base.png" >}}
-{{< figure src="../images/send-update-bare.png" title="" link="../images/send-update-bare.png" >}}
+{{< figure src="../../images/send-update-base.png" title="" link="../images/send-update-base.png" >}}
+{{< figure src="../../images/send-update-bare.png" title="" link="../images/send-update-bare.png" >}}
 
 Looking at a tree with 300 leaves for example we have to encrypt 299 times (for every other leaf) in the case of a bare tree.
 In a fully updated tree however only 9 encryptions are necessary, one for each level of the tree.
@@ -119,7 +119,7 @@ Looking at the performance of adding a user and processing an add commit in the 
 This is almost independent of the state of the tree.
 The operations appear to be slightly more expensive in a fully updated tree though.
 
-{{< figure src="../images/add.svg" title="" link="../images/add.svg" >}}
+{{< figure src="../../images/add.svg" title="" link="../images/add.svg" >}}
 
 ### Removing a user
 
@@ -128,7 +128,7 @@ Removing in a very sparse tree is significantly more expensive than in a fully u
 The reason is the same as for updating the tree.
 The remove information has to be encrypted to all other remaining participants in the tree.
 
-{{< figure src="../images/remove.svg" title="" link="../images/remove.svg" >}}
+{{< figure src="../../images/remove.svg" title="" link="../images/remove.svg" >}}
 
 ### Application messages
 
@@ -136,8 +136,8 @@ Sending and receiving application messages is essentially independent of the gro
 Receiving the first message within an epoch has a small overhead compared to subsequent message as seen in the second graph.
 This should be negligible in practice though.
 
-{{< figure src="../images/application-message-send.svg" title="" link="../images/application-message-send.svg" >}}
-{{< figure src="../images/application-message-receive.svg" title="" link="../images/application-message-receive.svg" >}}
+{{< figure src="../../images/application-message-send.svg" title="" link="../images/application-message-send.svg" >}}
+{{< figure src="../../images/application-message-receive.svg" title="" link="../images/application-message-receive.svg" >}}
 
 ## Analysis
 

@@ -41,7 +41,8 @@ We followed a pretty boring structure: In one file we define the domain types (e
 
 Let's go back to the [check][FramedContent Signature Validation Check RFC] we looked at earlier. The check is part of a [section][Commit Validation Section RFC] that describes what need to be checked when validating a commit. In our dashboard, we made that whole section a [check set][Commit Validation Check Set Dashboard], and at the time of writing it looks like this:
 
-![](https://md.cryspen.com/uploads/upload_76ae7721e9602891a60a302b0f2eaa63.png)
+<!-- ![](https://md.cryspen.com/uploads/upload_76ae7721e9602891a60a302b0f2eaa63.png) -->
+{{< figure src="../../images/validation_dashboard.png" title="Validation Dashboard" link="../../images/validation_dashboard.png" >}}
 
 The check set starts with quotes from the RFC and links to the places in the RFC that the quotes come from. It is followed by a table of checks. Each check has an identifier for the check, if we want to reference it in text. We then have the text from the RFC and a link to the specific paragraph of the RFC that contains the text. In the rightmost column we have a link to a search for the check ID in the OpenMLS repository on Github, some notes as well as references to the implementation of the check and tests for the check (if available). Links into the code show modpath of the linked function but link to the permalink to the specific lines of code where a check is implemented or tested. The pilcrows (¶) link to the check set or check itself, to make it easier to link it elsewere.
 
