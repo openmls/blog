@@ -1,6 +1,6 @@
 ---
 title: "This month in OpenMLS #1 - September 2024"
-date: 2024-09-30
+date: 2024-10-01
 tags: ["openmls", "this-month-in-openmls"]
 notoc: true
 author: "Franziskus Kiefer"
@@ -19,6 +19,7 @@ At the beginning of September we released [OpenMLS v0.6](./2024-09-04-v0_6-relea
 The month has been pretty quiet after the release while we started to complete
 the [semantic validation checks in OpenMLS](https://validation.openmls.tech)
 to ensure that OpenMLS is always safe to use.
+Read more about it in [Jan's blog post](../2024-09-30-taking-stock-of-validation-checks).
 
 ### Merged PRs September 2024
 * #1655: [Add check and (basic) test for check 701: remove can't contain inde to blank leaf](https://github.com/openmls/openmls/pull/1655)
