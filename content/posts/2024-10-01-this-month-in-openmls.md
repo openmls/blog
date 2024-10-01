@@ -26,3 +26,11 @@ Read more about it in [Jan's blog post](../2024-09-30-taking-stock-of-validation
 * #1653: [Fix docs](https://github.com/openmls/openmls/pull/1653)
 * #1652: [Bump crate versions for v0.6](https://github.com/openmls/openmls/pull/1652)
 * #1651: [Update links](https://github.com/openmls/openmls/pull/1651)
+
+### Merged PRs September 2024 | Validation dashboard
+* #18: [Update Check valn0110](https://github.com/openmls/validation.dhall/pull/18)
+* #17: [Move RFC links into description column](https://github.com/openmls/validation.dhall/pull/17)
+* #16: [Allow linking Check Sets](https://github.com/openmls/validation.dhall/pull/16)
+* #14: [update status of valn0701](https://github.com/openmls/validation.dhall/pull/14)
+* #13: [Improve Dashboard](https://github.com/openmls/validation.dhall/pull/13)
+* #12: [Update List with CodeRefs](https://github.com/openmls/validation.dhall/pull/12)
