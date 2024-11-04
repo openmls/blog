@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Openmls on OpenMLS</title><link>https://blog.openmls.tech/tags/openmls/</link><description>Recent content in Openmls on OpenMLS</description><generator>Hugo -- 0.135.0</generator><language>en-us</language><lastBuildDate>Tue, 01 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/tags/openmls/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #1 - September 2024</title><link>https://blog.openmls.tech/posts/2024-10-01-this-month-in-openmls/</link><pubDate>Tue, 01 Oct 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-10-01-this-month-in-openmls/</guid><description>&lt;p>&lt;em>OpenMLS Development Update - September 2024&lt;/em>&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Openmls on OpenMLS</title><link>https://blog.openmls.tech/tags/openmls/</link><description>Recent content in Openmls on OpenMLS</description><generator>Hugo -- 0.136.5</generator><language>en-us</language><lastBuildDate>Mon, 04 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/tags/openmls/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #2 - October 2024</title><link>https://blog.openmls.tech/posts/2024-11-04-this-month-in-openmls/</link><pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-11-04-this-month-in-openmls/</guid><description>&lt;p>The OpenMLS currently focuses on stabilising and improving APIs, as well as
+improving the &lt;a href="https://validation.openmls.tech">semantic validation checks in OpenMLS&lt;/a>.&lt;/p>
+&lt;h3 id="merged-prs-october-2024">Merged PRs October 2024&lt;/h3>
+&lt;ul>
+&lt;li>#1669: &lt;a href="https://github.com/openmls/openmls/pull/1669">Box PublicMessage in ProtocolMessage and allow some large enum variants&lt;/a>&lt;/li>
+&lt;li>#1668: &lt;a href="https://github.com/openmls/openmls/pull/1668">Add log messages for unsupported extension errors&lt;/a>&lt;/li>
+&lt;li>#1667: &lt;a href="https://github.com/openmls/openmls/pull/1667">Validation Progress&lt;/a>&lt;/li>
+&lt;li>#1666: &lt;a href="https://github.com/openmls/openmls/pull/1666">Add members and group_context getters to StagedWelcome&lt;/a>&lt;/li>
+&lt;li>#1664: &lt;a href="https://github.com/openmls/openmls/pull/1664">Add test for incorrect max_past_epochs value&lt;/a>&lt;/li>
+&lt;li>#1661: &lt;a href="https://github.com/openmls/openmls/pull/1661">Upstream some changes from XMTP&lt;/a>&lt;/li>
+&lt;li>#1659: &lt;a href="https://github.com/openmls/openmls/pull/1659">Fix a broken link in &lt;code>CONTRIBUTING.md&lt;/code>&lt;/a>&lt;/li>
+&lt;li>#1657: &lt;a href="https://github.com/openmls/openmls/pull/1657">Fix checks for leaf node validation (valn01xx) and valn1207&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="contributors">Contributors&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/erskingardner">@erskingardner&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/W95Psp">@W95Psp&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/neekolas">@neekolas&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/kkohbrok">@kkohbrok&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/keks">@keks&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/franziskuskiefer">@franziskuskiefer&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>This month in OpenMLS #1 - September 2024</title><link>https://blog.openmls.tech/posts/2024-10-01-this-month-in-openmls/</link><pubDate>Tue, 01 Oct 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-10-01-this-month-in-openmls/</guid><description>&lt;p>&lt;em>OpenMLS Development Update - September 2024&lt;/em>&lt;/p>
 &lt;p>Welcome to the inaugural post in our new series, designed to keep you informed
 about the latest developments on OpenMLS.&lt;/p>
 &lt;p>Each month, we&amp;rsquo;ll highlight significant changes, share key milestones, and
