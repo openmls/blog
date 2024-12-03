@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>This-Month-in-Openmls on OpenMLS</title><link>https://blog.openmls.tech/tags/this-month-in-openmls/</link><description>Recent content in This-Month-in-Openmls on OpenMLS</description><generator>Hugo -- 0.136.5</generator><language>en-us</language><lastBuildDate>Mon, 04 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/tags/this-month-in-openmls/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #2 - October 2024</title><link>https://blog.openmls.tech/posts/2024-11-04-this-month-in-openmls/</link><pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-11-04-this-month-in-openmls/</guid><description>&lt;p>The OpenMLS currently focuses on stabilising and improving APIs, as well as
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>This-Month-in-Openmls on OpenMLS</title><link>https://blog.openmls.tech/tags/this-month-in-openmls/</link><description>Recent content in This-Month-in-Openmls on OpenMLS</description><generator>Hugo -- 0.139.3</generator><language>en-us</language><lastBuildDate>Tue, 03 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/tags/this-month-in-openmls/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #3 - November 2024</title><link>https://blog.openmls.tech/posts/2024-12-03-this-month-in-openmls/</link><pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-12-03-this-month-in-openmls/</guid><description>&lt;p>In November we merged 9 PRs into OpenMLS.&lt;/p>
+&lt;p>A major change has been the addition of a commit builder in &lt;a href="https://github.com/openmls/openmls/pull/1675">#1675&lt;/a>.
+The commit builder makes creating commits more convenient as you can see in the example below.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> message_bundle &lt;span style="color:#f92672">=&lt;/span> alice_group
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .commit_builder()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .propose_adds(Some(bob_key_package.key_package().clone()))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .load_psks(provider.storage())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .expect(&lt;span style="color:#e6db74">&amp;#34;error loading psks&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .build(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> provider.rand(),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> provider.crypto(),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;amp;&lt;/span>alice_signature_keys,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">|&lt;/span>_proposal&lt;span style="color:#f92672">|&lt;/span> &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .expect(&lt;span style="color:#e6db74">&amp;#34;error validating data and building commit&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .stage_commit(provider)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .expect(&lt;span style="color:#e6db74">&amp;#34;error staging commit&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> (mls_message_out, welcome, group_info) &lt;span style="color:#f92672">=&lt;/span> message_bundle.into_contents();
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="merged-prs-november-2024">Merged PRs November 2024&lt;/h3>
+&lt;ul>
+&lt;li>#1687: &lt;a href="https://github.com/openmls/openmls/pull/1687">Clippy fixes&lt;/a>&lt;/li>
+&lt;li>#1684: &lt;a href="https://github.com/openmls/openmls/pull/1684">Add validation annotations and a check&lt;/a>&lt;/li>
+&lt;li>#1683: &lt;a href="https://github.com/openmls/openmls/pull/1683">ci: Fix coverage&lt;/a>&lt;/li>
+&lt;li>#1679: &lt;a href="https://github.com/openmls/openmls/pull/1679">Fixing a few typos in the book&lt;/a>&lt;/li>
+&lt;li>#1678: &lt;a href="https://github.com/openmls/openmls/pull/1678">Update README.md ciphersuite names&lt;/a>&lt;/li>
+&lt;li>#1676: &lt;a href="https://github.com/openmls/openmls/pull/1676">Fix docs link&lt;/a>&lt;/li>
+&lt;li>#1675: &lt;a href="https://github.com/openmls/openmls/pull/1675">Add Commit Builder&lt;/a>&lt;/li>
+&lt;li>#1673: &lt;a href="https://github.com/openmls/openmls/pull/1673">Feat: Better error when attempting to decrypt own messages&lt;/a>&lt;/li>
+&lt;li>#1672: &lt;a href="https://github.com/openmls/openmls/pull/1672">&lt;code>VerifiableGroupInfo::epoch()&lt;/code> added to public API&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="contributors">Contributors&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/franziskuskiefer">@franziskuskiefer&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/kkohbrok">@kkohbrok&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/raphaelrobert">@raphaelrobert&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/josephlukefahr">@josephlukefahr&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/keks">@keks&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>This month in OpenMLS #2 - October 2024</title><link>https://blog.openmls.tech/posts/2024-11-04-this-month-in-openmls/</link><pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-11-04-this-month-in-openmls/</guid><description>&lt;p>The OpenMLS currently focuses on stabilising and improving APIs, as well as
 improving the &lt;a href="https://validation.openmls.tech">semantic validation checks in OpenMLS&lt;/a>.&lt;/p>
 &lt;h3 id="merged-prs-october-2024">Merged PRs October 2024&lt;/h3>
 &lt;ul>
