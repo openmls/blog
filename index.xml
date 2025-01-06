@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>OpenMLS</title><link>https://blog.openmls.tech/</link><description>Recent content on OpenMLS</description><generator>Hugo -- 0.139.3</generator><language>en-us</language><lastBuildDate>Tue, 03 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #3 - November 2024</title><link>https://blog.openmls.tech/posts/2024-12-03-this-month-in-openmls/</link><pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-12-03-this-month-in-openmls/</guid><description>&lt;p>In November we merged 9 PRs into OpenMLS.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>OpenMLS</title><link>https://blog.openmls.tech/</link><description>Recent content on OpenMLS</description><generator>Hugo -- 0.140.2</generator><language>en-us</language><lastBuildDate>Mon, 06 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #4 - December 2024</title><link>https://blog.openmls.tech/posts/2025-01-06-this-month-in-openmls/</link><pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-01-06-this-month-in-openmls/</guid><description>&lt;p>Happy new year! 🍾&lt;/p>
+&lt;p>In the last month of 2024 we merged 4 PRs into OpenMLS.&lt;/p>
+&lt;p>We fixed a bug where credential lookup may have failed in certain cases (&lt;a href="https://github.com/openmls/openmls/pull/1691">#1691&lt;/a>) and improved semantic message validation
+to make OpenMLS even safer.&lt;/p>
+&lt;h3 id="merged-prs-december-2024">Merged PRs December 2024&lt;/h3>
+&lt;ul>
+&lt;li>#1694: &lt;a href="https://github.com/openmls/openmls/pull/1694">Add Validation Comments and Fix Application Message Epoch&lt;/a>&lt;/li>
+&lt;li>#1692: &lt;a href="https://github.com/openmls/openmls/pull/1692">update dependencies&lt;/a>&lt;/li>
+&lt;li>#1691: &lt;a href="https://github.com/openmls/openmls/pull/1691">Correctly Look Up Credentials and Public Keys for Members for Previous Epochs&lt;/a>&lt;/li>
+&lt;li>#1688: &lt;a href="https://github.com/openmls/openmls/pull/1688">Fix Typo and add GroupContextExtension example for Unknown Extensions&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="contributors">Contributors&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/franziskuskiefer">@franziskuskiefer&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/raphaelrobert">@raphaelrobert&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/keks">@keks&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>This month in OpenMLS #3 - November 2024</title><link>https://blog.openmls.tech/posts/2024-12-03-this-month-in-openmls/</link><pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-12-03-this-month-in-openmls/</guid><description>&lt;p>In November we merged 9 PRs into OpenMLS.&lt;/p>
 &lt;p>A major change has been the addition of a commit builder in &lt;a href="https://github.com/openmls/openmls/pull/1675">#1675&lt;/a>.
 The commit builder makes creating commits more convenient as you can see in the example below.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> message_bundle &lt;span style="color:#f92672">=&lt;/span> alice_group
