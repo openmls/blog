@@ -2,12 +2,27 @@ baseURL = "https://blog.openmls.tech"
 languageCode = "en-us"
 title = "OpenMLS"
 theme = "hugo-papermod"
-paginate = 10
+
+[pagination]
+pagerSize = 10
 
 [params]
 smartToc = true
 katex = true
 mainSections = ["posts"]
+
+[params.homeInfoParams]
+title = "OpenMLS"
+content = "The Open MLS Implementation"
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/openmls/openmls"
+[[params.socialIcons]]
+name = "email"
+url = "mailto:hello@openmls.tech"
+[[params.socialIcons]]
+name = "website"
+url = "https://openmls.tech/"
 
 [menu]
 [[menu.main]]
