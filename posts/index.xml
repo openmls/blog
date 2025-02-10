@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on OpenMLS</title><link>https://blog.openmls.tech/posts/</link><description>Recent content in Posts on OpenMLS</description><generator>Hugo -- 0.140.2</generator><language>en-us</language><lastBuildDate>Mon, 06 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #4 - December 2024</title><link>https://blog.openmls.tech/posts/2025-01-06-this-month-in-openmls/</link><pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-01-06-this-month-in-openmls/</guid><description>&lt;p>Happy new year! 🍾&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on OpenMLS</title><link>https://blog.openmls.tech/posts/</link><description>Recent content in Posts on OpenMLS</description><generator>Hugo -- 0.143.1</generator><language>en-us</language><lastBuildDate>Fri, 07 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #5 - January 2024</title><link>https://blog.openmls.tech/posts/2025-02-07-this-month-in-openmls/</link><pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-02-07-this-month-in-openmls/</guid><description>&lt;p>January was focused on bug fixes and finishing the implementation and description
+of validation checks &lt;a href="https://github.com/openmls/openmls/pull/1702">#1702&lt;/a>.&lt;/p>
+&lt;p>We are also happy to welcome 3 new contributors &lt;a href="https://github.com/Gusted">@Gusted&lt;/a>,
+&lt;a href="https://github.com/sandr01d">@sandr01d&lt;/a>, and &lt;a href="https://github.com/rozbb">@rozbb&lt;/a>.&lt;/p>
+&lt;h3 id="merged-prs-january-2025">Merged PRs January 2025&lt;/h3>
+&lt;ul>
+&lt;li>#1713: &lt;a href="https://github.com/openmls/openmls/pull/1713">Drop dead code in signature.rs&lt;/a>&lt;/li>
+&lt;li>#1706: &lt;a href="https://github.com/openmls/openmls/pull/1706">Update labeler.yml&lt;/a>&lt;/li>
+&lt;li>#1705: &lt;a href="https://github.com/openmls/openmls/pull/1705">Add annotations for valn0306&lt;/a>&lt;/li>
+&lt;li>#1703: &lt;a href="https://github.com/openmls/openmls/pull/1703">fix: clear update proposals when a remove proposal is present for a given leaf&lt;/a>&lt;/li>
+&lt;li>#1702: &lt;a href="https://github.com/openmls/openmls/pull/1702">Annotate and fix missing validation checks, including ones we hadn&amp;rsquo;t catalogued before&lt;/a>&lt;/li>
+&lt;li>#1701: &lt;a href="https://github.com/openmls/openmls/pull/1701">fix: use &amp;ldquo;?&amp;rdquo; instead of match statement in cli&lt;/a>&lt;/li>
+&lt;li>#1700: &lt;a href="https://github.com/openmls/openmls/pull/1700">Change error in MemoryStorage and result handling in OpenMLS&lt;/a>&lt;/li>
+&lt;li>#1699: &lt;a href="https://github.com/openmls/openmls/pull/1699">Fixed &lt;code>openmls_rust_crypto&lt;/code> build with &lt;code>test-utils&lt;/code> feature&lt;/a>&lt;/li>
+&lt;li>#1698: &lt;a href="https://github.com/openmls/openmls/pull/1698">fix: typos in quick start&lt;/a>&lt;/li>
+&lt;li>#1697: &lt;a href="https://github.com/openmls/openmls/pull/1697">update dependencies&lt;/a>&lt;/li>
+&lt;li>#1696: &lt;a href="https://github.com/openmls/openmls/pull/1696">Delete .github/workflows/interop.yml&lt;/a>&lt;/li>
+&lt;li>#1693: &lt;a href="https://github.com/openmls/openmls/pull/1693">Improve &lt;code>log2&lt;/code> function&lt;/a>&lt;/li>
+&lt;li>#1682: &lt;a href="https://github.com/openmls/openmls/pull/1682">Sqlite storage provider crate&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="contributors">Contributors&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/Gusted">@Gusted&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/sandr01d">@sandr01d&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/keks">@keks&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/rozbb">@rozbb&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/franziskuskiefer">@franziskuskiefer&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/kkohbrok">@kkohbrok&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>This month in OpenMLS #4 - December 2024</title><link>https://blog.openmls.tech/posts/2025-01-06-this-month-in-openmls/</link><pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-01-06-this-month-in-openmls/</guid><description>&lt;p>Happy new year! 🍾&lt;/p>
 &lt;p>In the last month of 2024 we merged 4 PRs into OpenMLS.&lt;/p>
 &lt;p>We fixed a bug where credential lookup may have failed in certain cases (&lt;a href="https://github.com/openmls/openmls/pull/1691">#1691&lt;/a>) and improved semantic message validation
 to make OpenMLS even safer.&lt;/p>
@@ -107,8 +135,7 @@ towards a more comprehensive test framework for interoperability.&lt;/p></descri
 &lt;p>Over the next five months we will fix the most pressing issues and make OpenMLS a usable MLS library for consumers to use. We are well aware that there is almost no experience with using MLS in a messaging product. (Cisco&amp;rsquo;s Webex is rolling out MLS for &lt;a href="https://www.btconferencing.com/downloads-library/services/webex-versions/t41/Webex_Latest_Channel_Customer_Monthly_Update_41.7.pdf">end-to-end encrypted video calls&lt;/a> as part of their &lt;a href="https://www.cisco.com/c/en/us/solutions/collateral/collaboration/white-paper-c11-744553.html">zero-trust initiative&lt;/a> right now.) The goal is therefore to offer a mostly stable API and complete feature set for consumers to start using it. However, we expect a significant feedback cycle to improve the APIs to make OpenMLS better suited for applications.&lt;/p></description></item><item><title>OpenMLS Performance</title><link>https://blog.openmls.tech/posts/2021-05-18-openmls-first-benchmarks/</link><pubDate>Tue, 18 May 2021 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2021-05-18-openmls-first-benchmarks/</guid><description>&lt;p>In this blog post, I explore how MLS&amp;rsquo; aspiration &lt;a href="https://datatracker.ietf.org/doc/charter-ietf-mls/">to be scalable&lt;/a> manifests itself in OpenMLS.&lt;/p>
 &lt;p>The charter in particular claims the following:&lt;/p>
 &lt;blockquote>
-&lt;p>Resource requirements have good scaling in the size of the group (preferably sub-linear)&lt;/p>
-&lt;/blockquote>
+&lt;p>Resource requirements have good scaling in the size of the group (preferably sub-linear)&lt;/p>&lt;/blockquote>
 &lt;p>While performance can be theoretically analysed for MLS it is also interesting to see whether the performance goals hold up in a real implementation.
 This of course only looks at a single implementation.
 Nonetheless, I think that it gives a good impression on the actual performance of MLS implementations.
