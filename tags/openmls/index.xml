@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Openmls on OpenMLS</title><link>https://blog.openmls.tech/tags/openmls/</link><description>Recent content in Openmls on OpenMLS</description><generator>Hugo -- 0.147.1</generator><language>en-us</language><lastBuildDate>Tue, 06 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/tags/openmls/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #8 - April 2024</title><link>https://blog.openmls.tech/posts/2025-05-06-this-month-in-openmls/</link><pubDate>Tue, 06 May 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-05-06-this-month-in-openmls/</guid><description>&lt;p>The openmls project continues to thrive not only because of the core team, but
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Openmls on OpenMLS</title><link>https://blog.openmls.tech/tags/openmls/</link><description>Recent content in Openmls on OpenMLS</description><generator>Hugo -- 0.147.7</generator><language>en-us</language><lastBuildDate>Tue, 03 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/tags/openmls/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #9 - May 2025</title><link>https://blog.openmls.tech/posts/2025-06-03-this-month-in-openmls/</link><pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-06-03-this-month-in-openmls/</guid><description>&lt;p>We merged 4 PRs in May with some significant improvements.&lt;/p>
+&lt;p>&lt;a href="https://github.com/openmls/openmls/pull/1774">#1774&lt;/a> introduced a flag in the
+commit builder, providing more granular control over group information creation.
+This enhancement allows for greater flexibility when managing MLS group states.&lt;/p>
+&lt;p>We&amp;rsquo;ve improved error handling for old private messages in &lt;a href="https://github.com/openmls/openmls/pull/1772">#1772&lt;/a>.
+Now, when you encounter an outdated private message, OpenMLS will return a more
+specific error, making debugging and message management easier.&lt;/p>
+&lt;p>And &lt;a href="https://github.com/openmls/openmls/pull/1767">#1767&lt;/a> refines how updates are
+handled within OpenMLS by transitioning to the use of SignerBundle instead of
+Signer.&lt;/p></description></item><item><title>This month in OpenMLS #8 - April 2025</title><link>https://blog.openmls.tech/posts/2025-05-06-this-month-in-openmls/</link><pubDate>Tue, 06 May 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-05-06-this-month-in-openmls/</guid><description>&lt;p>The openmls project continues to thrive not only because of the core team, but
 also thanks to the valuable contributions from our dedicated community.
 Last month saw 32 pull requests merged, all aimed at bolstering the stability
 and usability of the OpenMLS library.&lt;/p>
@@ -7,7 +16,7 @@ for use in OpenMLS.
 This is the first step towards making OpenMLS a high assurance library.&lt;/p>
 &lt;p>We also welcome new contributors &lt;a href="https://github.com/Snazzah">@Snazzah&lt;/a>, who added
 support for external sender proposals &lt;a href="https://github.com/openmls/openmls/pull/1750">#1750&lt;/a>,
-as well as &lt;a href="https://github.com/timokoesters">@timokoesters&lt;/a>.&lt;/p></description></item><item><title>This month in OpenMLS #7 - March 2024</title><link>https://blog.openmls.tech/posts/2025-04-01-this-month-in-openmls/</link><pubDate>Tue, 01 Apr 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-04-01-this-month-in-openmls/</guid><description>&lt;p>OpenMLS saw some significant improvements last month!
+as well as &lt;a href="https://github.com/timokoesters">@timokoesters&lt;/a>.&lt;/p></description></item><item><title>This month in OpenMLS #7 - March 2025</title><link>https://blog.openmls.tech/posts/2025-04-01-this-month-in-openmls/</link><pubDate>Tue, 01 Apr 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-04-01-this-month-in-openmls/</guid><description>&lt;p>OpenMLS saw some significant improvements last month!
 We tackled several bugs and introduced two key features:
 a helper to streamline fork resolution (&lt;a href="https://github.com/openmls/openmls/pull/1731">#1731&lt;/a>) and the much-requested ability to
 rotate signature keys (&lt;a href="https://github.com/openmls/openmls/pull/1735">#1735&lt;/a>).
@@ -15,7 +24,7 @@ Additionally, a big thank you to &lt;a href="https://github.com/wysiwys">@wysiwy
 contributing a new set of helpers that will make writing tests significantly easier.&lt;/p>
 &lt;p>We&amp;rsquo;re particularly excited about the fork resolution helper, and we&amp;rsquo;ll be diving
 deeper into the intricacies of this issue and its solution in a dedicated blog
-post coming soon.&lt;/p></description></item><item><title>This month in OpenMLS #6 - February 2024</title><link>https://blog.openmls.tech/posts/2025-03-04-this-month-in-openmls/</link><pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-03-04-this-month-in-openmls/</guid><description>&lt;p>February was as quiet month with some bug fixes and new tests.&lt;/p>
+post coming soon.&lt;/p></description></item><item><title>This month in OpenMLS #6 - February 2025</title><link>https://blog.openmls.tech/posts/2025-03-04-this-month-in-openmls/</link><pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-03-04-this-month-in-openmls/</guid><description>&lt;p>February was as quiet month with some bug fixes and new tests.&lt;/p>
 &lt;p>We are also happy to welcome 2 new contributors &lt;a href="https://github.com/wysiwys">@wysiwys&lt;/a>,
 and &lt;a href="https://github.com/shishkin">@shishkin&lt;/a> 🎉&lt;/p>
 &lt;h3 id="merged-prs-february-2025">Merged PRs February 2025&lt;/h3>
@@ -31,7 +40,7 @@ and &lt;a href="https://github.com/shishkin">@shishkin&lt;/a> 🎉&lt;/p>
 &lt;li>&lt;a href="https://github.com/kkohbrok">@kkohbrok&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/wysiwys">@wysiwys&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/shishkin">@shishkin&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>This month in OpenMLS #5 - January 2024</title><link>https://blog.openmls.tech/posts/2025-02-07-this-month-in-openmls/</link><pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-02-07-this-month-in-openmls/</guid><description>&lt;p>January was focused on bug fixes and finishing the implementation and description
+&lt;/ul></description></item><item><title>This month in OpenMLS #5 - January 2025</title><link>https://blog.openmls.tech/posts/2025-02-07-this-month-in-openmls/</link><pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-02-07-this-month-in-openmls/</guid><description>&lt;p>January was focused on bug fixes and finishing the implementation and description
 of validation checks &lt;a href="https://github.com/openmls/openmls/pull/1702">#1702&lt;/a>.&lt;/p>
 &lt;p>We are also happy to welcome 3 new contributors &lt;a href="https://github.com/Gusted">@Gusted&lt;/a>,
 &lt;a href="https://github.com/sandr01d">@sandr01d&lt;/a>, and &lt;a href="https://github.com/rozbb">@rozbb&lt;/a>.&lt;/p>
