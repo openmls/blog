@@ -1,5 +1,5 @@
 ---
-title: "This month in OpenMLS #6 - February 2024"
+title: "This month in OpenMLS #6 - February 2025"
 date: 2025-03-04
 tags: ["openmls", "this-month-in-openmls"]
 notoc: true
