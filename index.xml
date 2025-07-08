@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>OpenMLS</title><link>https://blog.openmls.tech/</link><description>Recent content on OpenMLS</description><generator>Hugo -- 0.147.7</generator><language>en-us</language><lastBuildDate>Tue, 03 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #9 - May 2025</title><link>https://blog.openmls.tech/posts/2025-06-03-this-month-in-openmls/</link><pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-06-03-this-month-in-openmls/</guid><description>&lt;p>We merged 4 PRs in May with some significant improvements.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>OpenMLS</title><link>https://blog.openmls.tech/</link><description>Recent content on OpenMLS</description><generator>Hugo -- 0.147.9</generator><language>en-us</language><lastBuildDate>Mon, 07 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #10 - June 2025</title><link>https://blog.openmls.tech/posts/2025-07-07-this-month-in-openmls/</link><pubDate>Mon, 07 Jul 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-07-07-this-month-in-openmls/</guid><description>&lt;p>We merged 5 PRs in June with some small improvements.
+This was a quiet month, with the main focus on stabilization to prepare for the upcoming &lt;a href="https://github.com/openmls/openmls/issues/1769">v0.7 release&lt;/a>.&lt;/p>
+&lt;h3 id="merged-prs-june-2025">Merged PRs June 2025&lt;/h3>
+&lt;ul>
+&lt;li>#1788: &lt;a href="https://github.com/openmls/openmls/pull/1788">hpke: don&amp;rsquo;t use git dependency&lt;/a>&lt;/li>
+&lt;li>#1787: &lt;a href="https://github.com/openmls/openmls/pull/1787">Update tls_codec to 0.4.2&lt;/a>&lt;/li>
+&lt;li>#1786: &lt;a href="https://github.com/openmls/openmls/pull/1786">fix: Tighten export functions API&lt;/a>&lt;/li>
+&lt;li>#1783: &lt;a href="https://github.com/openmls/openmls/pull/1783">Update external proposal documentation with links to validation checks&lt;/a>&lt;/li>
+&lt;li>#1782: &lt;a href="https://github.com/openmls/openmls/pull/1782">Add validation test for valn1504&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="contributors">Contributors&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/wysiwys">@wysiwys&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/raphaelrobert">@raphaelrobert&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/keks">@keks&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/franziskuskiefer">@franziskuskiefer&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>This month in OpenMLS #9 - May 2025</title><link>https://blog.openmls.tech/posts/2025-06-03-this-month-in-openmls/</link><pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-06-03-this-month-in-openmls/</guid><description>&lt;p>We merged 4 PRs in May with some significant improvements.&lt;/p>
 &lt;p>&lt;a href="https://github.com/openmls/openmls/pull/1774">#1774&lt;/a> introduced a flag in the
 commit builder, providing more granular control over group information creation.
 This enhancement allows for greater flexibility when managing MLS group states.&lt;/p>
