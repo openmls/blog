@@ -1,208 +1,245 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>OpenMLS</title><link>https://blog.openmls.tech/</link><description>Recent content on OpenMLS</description><generator>Hugo -- 0.148.2</generator><language>en-us</language><lastBuildDate>Fri, 01 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #11 - July 2025</title><link>https://blog.openmls.tech/posts/2025-08-01-this-month-in-openmls/</link><pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-08-01-this-month-in-openmls/</guid><description>&lt;p>We merged 16 PRs in July with fixes to documentation and code improvements, and
-most importantly, &lt;a href="https://github.com/openmls/openmls/releases/tag/openmls-v0.7.0">OpenMLS v0.7&lt;/a>
-got released 🎉.&lt;/p>
-&lt;p>Important fixes that got merged in July are &lt;a href="https://github.com/openmls/openmls/pull/1797">#1797&lt;/a>,
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>OpenMLS</title><link>https://blog.openmls.tech/</link><description>Recent content on OpenMLS</description><generator>Hugo -- 0.149.0</generator><language>en-us</language><lastBuildDate>Mon, 01 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #12 - August 2025</title><link>https://blog.openmls.tech/posts/2025-09-01-this-month-in-openmls/</link><pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-09-01-this-month-in-openmls/</guid><description>&lt;p&gt;We merged 8 PRs in August. Not bad for a summer month 🌞.&lt;/p&gt;
+&lt;p&gt;We welcome &lt;a href="https://github.com/tbehner"&gt;@tbehner&lt;/a&gt; as a first time contributor, solving
+a long standing issue by &lt;a href="https://github.com/openmls/openmls/pull/1825"&gt;adding the hmac function to OpenMlsCrypto&lt;/a&gt; trait.&lt;/p&gt;
+&lt;p&gt;Thanks to &lt;a href="https://github.com/kkohbrok"&gt;@kkohbrok&lt;/a&gt; it is now also much easier to
+build external commits with the new &lt;a href="https://github.com/openmls/openmls/pull/1801"&gt;external commit builder&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-Rust" data-lang="Rust"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;let&lt;/span&gt; (&lt;span style="color:#66d9ef"&gt;mut&lt;/span&gt; dave_group, _bundle) &lt;span style="color:#f92672"&gt;=&lt;/span&gt; MlsGroup::external_commit_builder()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .with_config(mls_group_config.clone())
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .build_group(provider, verifiable_group_info, dave_credential)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .unwrap()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .load_psks(provider.storage())
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .unwrap()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .build(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; provider.rand(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; provider.crypto(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;dave_signature_keys,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;|&lt;/span&gt;_&lt;span style="color:#f92672"&gt;|&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;true&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; )
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .unwrap()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .finalize(provider)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .expect(&lt;span style="color:#e6db74"&gt;&amp;#34;Error joining from external commit&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="merged-prs-august-2025"&gt;Merged PRs August 2025&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;#1829: &lt;a href="https://github.com/openmls/openmls/pull/1829"&gt;Doc fixes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1828: &lt;a href="https://github.com/openmls/openmls/pull/1828"&gt;disable large tree test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1825: &lt;a href="https://github.com/openmls/openmls/pull/1825"&gt;adding the hmac function to OpenMlsCrypto&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1824: &lt;a href="https://github.com/openmls/openmls/pull/1824"&gt;make clippy happy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1823: &lt;a href="https://github.com/openmls/openmls/pull/1823"&gt;Update README.md in sqlite storage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1822: &lt;a href="https://github.com/openmls/openmls/pull/1822"&gt;chore: Add TryFrom for VerifiableCiphersuite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1814: &lt;a href="https://github.com/openmls/openmls/pull/1814"&gt;Allow configuration of leaf node lifetime checks on join&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1801: &lt;a href="https://github.com/openmls/openmls/pull/1801"&gt;External commit builder&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="contributors"&gt;Contributors&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/wysiwys"&gt;@wysiwys&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/franziskuskiefer"&gt;@franziskuskiefer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/tbehner"&gt;@tbehner&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/kkohbrok"&gt;@kkohbrok&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>This month in OpenMLS #11 - July 2025</title><link>https://blog.openmls.tech/posts/2025-08-01-this-month-in-openmls/</link><pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-08-01-this-month-in-openmls/</guid><description>&lt;p&gt;We merged 16 PRs in July with fixes to documentation and code improvements, and
+most importantly, &lt;a href="https://github.com/openmls/openmls/releases/tag/openmls-v0.7.0"&gt;OpenMLS v0.7&lt;/a&gt;
+got released 🎉.&lt;/p&gt;
+&lt;p&gt;Important fixes that got merged in July are &lt;a href="https://github.com/openmls/openmls/pull/1797"&gt;#1797&lt;/a&gt;,
 which ensures that the ratchet tree is trimmed correctly after processing proposals,
-and &lt;a href="https://github.com/openmls/openmls/pull/1793">#1793&lt;/a>, which
+and &lt;a href="https://github.com/openmls/openmls/pull/1793"&gt;#1793&lt;/a&gt;, which
 corrects the calculation of the free index when inserting a new leaf node into
 the ratchet tree in certain cases.
-OpenMLS now also supports &lt;code>GroupContextExtensions&lt;/code> in external proposals.&lt;/p></description></item><item><title>This month in OpenMLS #10 - June 2025</title><link>https://blog.openmls.tech/posts/2025-07-07-this-month-in-openmls/</link><pubDate>Mon, 07 Jul 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-07-07-this-month-in-openmls/</guid><description>&lt;p>We merged 5 PRs in June with some small improvements.
-This was a quiet month, with the main focus on stabilization to prepare for the upcoming &lt;a href="https://github.com/openmls/openmls/issues/1769">v0.7 release&lt;/a>.&lt;/p>
-&lt;h3 id="merged-prs-june-2025">Merged PRs June 2025&lt;/h3>
-&lt;ul>
-&lt;li>#1788: &lt;a href="https://github.com/openmls/openmls/pull/1788">hpke: don&amp;rsquo;t use git dependency&lt;/a>&lt;/li>
-&lt;li>#1787: &lt;a href="https://github.com/openmls/openmls/pull/1787">Update tls_codec to 0.4.2&lt;/a>&lt;/li>
-&lt;li>#1786: &lt;a href="https://github.com/openmls/openmls/pull/1786">fix: Tighten export functions API&lt;/a>&lt;/li>
-&lt;li>#1783: &lt;a href="https://github.com/openmls/openmls/pull/1783">Update external proposal documentation with links to validation checks&lt;/a>&lt;/li>
-&lt;li>#1782: &lt;a href="https://github.com/openmls/openmls/pull/1782">Add validation test for valn1504&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="contributors">Contributors&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/wysiwys">@wysiwys&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/raphaelrobert">@raphaelrobert&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/keks">@keks&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/franziskuskiefer">@franziskuskiefer&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>This month in OpenMLS #9 - May 2025</title><link>https://blog.openmls.tech/posts/2025-06-03-this-month-in-openmls/</link><pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-06-03-this-month-in-openmls/</guid><description>&lt;p>We merged 4 PRs in May with some significant improvements.&lt;/p>
-&lt;p>&lt;a href="https://github.com/openmls/openmls/pull/1774">#1774&lt;/a> introduced a flag in the
+OpenMLS now also supports &lt;code&gt;GroupContextExtensions&lt;/code&gt; in external proposals.&lt;/p&gt;</description></item><item><title>This month in OpenMLS #10 - June 2025</title><link>https://blog.openmls.tech/posts/2025-07-07-this-month-in-openmls/</link><pubDate>Mon, 07 Jul 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-07-07-this-month-in-openmls/</guid><description>&lt;p&gt;We merged 5 PRs in June with some small improvements.
+This was a quiet month, with the main focus on stabilization to prepare for the upcoming &lt;a href="https://github.com/openmls/openmls/issues/1769"&gt;v0.7 release&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="merged-prs-june-2025"&gt;Merged PRs June 2025&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;#1788: &lt;a href="https://github.com/openmls/openmls/pull/1788"&gt;hpke: don&amp;rsquo;t use git dependency&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1787: &lt;a href="https://github.com/openmls/openmls/pull/1787"&gt;Update tls_codec to 0.4.2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1786: &lt;a href="https://github.com/openmls/openmls/pull/1786"&gt;fix: Tighten export functions API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1783: &lt;a href="https://github.com/openmls/openmls/pull/1783"&gt;Update external proposal documentation with links to validation checks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1782: &lt;a href="https://github.com/openmls/openmls/pull/1782"&gt;Add validation test for valn1504&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="contributors"&gt;Contributors&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/wysiwys"&gt;@wysiwys&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/raphaelrobert"&gt;@raphaelrobert&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/keks"&gt;@keks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/franziskuskiefer"&gt;@franziskuskiefer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>This month in OpenMLS #9 - May 2025</title><link>https://blog.openmls.tech/posts/2025-06-03-this-month-in-openmls/</link><pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-06-03-this-month-in-openmls/</guid><description>&lt;p&gt;We merged 4 PRs in May with some significant improvements.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/openmls/openmls/pull/1774"&gt;#1774&lt;/a&gt; introduced a flag in the
 commit builder, providing more granular control over group information creation.
-This enhancement allows for greater flexibility when managing MLS group states.&lt;/p>
-&lt;p>We&amp;rsquo;ve improved error handling for old private messages in &lt;a href="https://github.com/openmls/openmls/pull/1772">#1772&lt;/a>.
+This enhancement allows for greater flexibility when managing MLS group states.&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;ve improved error handling for old private messages in &lt;a href="https://github.com/openmls/openmls/pull/1772"&gt;#1772&lt;/a&gt;.
 Now, when you encounter an outdated private message, OpenMLS will return a more
-specific error, making debugging and message management easier.&lt;/p>
-&lt;p>And &lt;a href="https://github.com/openmls/openmls/pull/1767">#1767&lt;/a> refines how updates are
+specific error, making debugging and message management easier.&lt;/p&gt;
+&lt;p&gt;And &lt;a href="https://github.com/openmls/openmls/pull/1767"&gt;#1767&lt;/a&gt; refines how updates are
 handled within OpenMLS by transitioning to the use of SignerBundle instead of
-Signer.&lt;/p></description></item><item><title>This month in OpenMLS #8 - April 2025</title><link>https://blog.openmls.tech/posts/2025-05-06-this-month-in-openmls/</link><pubDate>Tue, 06 May 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-05-06-this-month-in-openmls/</guid><description>&lt;p>The openmls project continues to thrive not only because of the core team, but
+Signer.&lt;/p&gt;</description></item><item><title>This month in OpenMLS #8 - April 2025</title><link>https://blog.openmls.tech/posts/2025-05-06-this-month-in-openmls/</link><pubDate>Tue, 06 May 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-05-06-this-month-in-openmls/</guid><description>&lt;p&gt;The openmls project continues to thrive not only because of the core team, but
 also thanks to the valuable contributions from our dedicated community.
 Last month saw 32 pull requests merged, all aimed at bolstering the stability
-and usability of the OpenMLS library.&lt;/p>
-&lt;p>We added a usable, formally verified crypto backend with &lt;a href="https://github.com/cryspen/libcrux">libcrux&lt;/a>
+and usability of the OpenMLS library.&lt;/p&gt;
+&lt;p&gt;We added a usable, formally verified crypto backend with &lt;a href="https://github.com/cryspen/libcrux"&gt;libcrux&lt;/a&gt;
 for use in OpenMLS.
-This is the first step towards making OpenMLS a high assurance library.&lt;/p>
-&lt;p>We also welcome new contributors &lt;a href="https://github.com/Snazzah">@Snazzah&lt;/a>, who added
-support for external sender proposals &lt;a href="https://github.com/openmls/openmls/pull/1750">#1750&lt;/a>,
-as well as &lt;a href="https://github.com/timokoesters">@timokoesters&lt;/a>.&lt;/p></description></item><item><title>This month in OpenMLS #7 - March 2025</title><link>https://blog.openmls.tech/posts/2025-04-01-this-month-in-openmls/</link><pubDate>Tue, 01 Apr 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-04-01-this-month-in-openmls/</guid><description>&lt;p>OpenMLS saw some significant improvements last month!
+This is the first step towards making OpenMLS a high assurance library.&lt;/p&gt;
+&lt;p&gt;We also welcome new contributors &lt;a href="https://github.com/Snazzah"&gt;@Snazzah&lt;/a&gt;, who added
+support for external sender proposals &lt;a href="https://github.com/openmls/openmls/pull/1750"&gt;#1750&lt;/a&gt;,
+as well as &lt;a href="https://github.com/timokoesters"&gt;@timokoesters&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>This month in OpenMLS #7 - March 2025</title><link>https://blog.openmls.tech/posts/2025-04-01-this-month-in-openmls/</link><pubDate>Tue, 01 Apr 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-04-01-this-month-in-openmls/</guid><description>&lt;p&gt;OpenMLS saw some significant improvements last month!
 We tackled several bugs and introduced two key features:
-a helper to streamline fork resolution (&lt;a href="https://github.com/openmls/openmls/pull/1731">#1731&lt;/a>) and the much-requested ability to
-rotate signature keys (&lt;a href="https://github.com/openmls/openmls/pull/1735">#1735&lt;/a>).
-Additionally, a big thank you to &lt;a href="https://github.com/wysiwys">@wysiwys&lt;/a> for
-contributing a new set of helpers that will make writing tests significantly easier.&lt;/p>
-&lt;p>We&amp;rsquo;re particularly excited about the fork resolution helper, and we&amp;rsquo;ll be diving
+a helper to streamline fork resolution (&lt;a href="https://github.com/openmls/openmls/pull/1731"&gt;#1731&lt;/a&gt;) and the much-requested ability to
+rotate signature keys (&lt;a href="https://github.com/openmls/openmls/pull/1735"&gt;#1735&lt;/a&gt;).
+Additionally, a big thank you to &lt;a href="https://github.com/wysiwys"&gt;@wysiwys&lt;/a&gt; for
+contributing a new set of helpers that will make writing tests significantly easier.&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;re particularly excited about the fork resolution helper, and we&amp;rsquo;ll be diving
 deeper into the intricacies of this issue and its solution in a dedicated blog
-post coming soon.&lt;/p></description></item><item><title>This month in OpenMLS #6 - February 2025</title><link>https://blog.openmls.tech/posts/2025-03-04-this-month-in-openmls/</link><pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-03-04-this-month-in-openmls/</guid><description>&lt;p>February was as quiet month with some bug fixes and new tests.&lt;/p>
-&lt;p>We are also happy to welcome 2 new contributors &lt;a href="https://github.com/wysiwys">@wysiwys&lt;/a>,
-and &lt;a href="https://github.com/shishkin">@shishkin&lt;/a> 🎉&lt;/p>
-&lt;h3 id="merged-prs-february-2025">Merged PRs February 2025&lt;/h3>
-&lt;ul>
-&lt;li>#1719: &lt;a href="https://github.com/openmls/openmls/pull/1719">add cname to gh-pages action&lt;/a>&lt;/li>
-&lt;li>#1717: &lt;a href="https://github.com/openmls/openmls/pull/1717">Test duplicate signature key detection is not bypassed&lt;/a>&lt;/li>
-&lt;li>#1715: &lt;a href="https://github.com/openmls/openmls/pull/1715">Fix x25519-dalek crate link in README&lt;/a>&lt;/li>
-&lt;li>#1704: &lt;a href="https://github.com/openmls/openmls/pull/1704">Add support for SelfRemove proposals&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="contributors">Contributors&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/franziskuskiefer">@franziskuskiefer&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/kkohbrok">@kkohbrok&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/wysiwys">@wysiwys&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/shishkin">@shishkin&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>This month in OpenMLS #5 - January 2025</title><link>https://blog.openmls.tech/posts/2025-02-07-this-month-in-openmls/</link><pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-02-07-this-month-in-openmls/</guid><description>&lt;p>January was focused on bug fixes and finishing the implementation and description
-of validation checks &lt;a href="https://github.com/openmls/openmls/pull/1702">#1702&lt;/a>.&lt;/p>
-&lt;p>We are also happy to welcome 3 new contributors &lt;a href="https://github.com/Gusted">@Gusted&lt;/a>,
-&lt;a href="https://github.com/sandr01d">@sandr01d&lt;/a>, and &lt;a href="https://github.com/rozbb">@rozbb&lt;/a>.&lt;/p>
-&lt;h3 id="merged-prs-january-2025">Merged PRs January 2025&lt;/h3>
-&lt;ul>
-&lt;li>#1713: &lt;a href="https://github.com/openmls/openmls/pull/1713">Drop dead code in signature.rs&lt;/a>&lt;/li>
-&lt;li>#1706: &lt;a href="https://github.com/openmls/openmls/pull/1706">Update labeler.yml&lt;/a>&lt;/li>
-&lt;li>#1705: &lt;a href="https://github.com/openmls/openmls/pull/1705">Add annotations for valn0306&lt;/a>&lt;/li>
-&lt;li>#1703: &lt;a href="https://github.com/openmls/openmls/pull/1703">fix: clear update proposals when a remove proposal is present for a given leaf&lt;/a>&lt;/li>
-&lt;li>#1702: &lt;a href="https://github.com/openmls/openmls/pull/1702">Annotate and fix missing validation checks, including ones we hadn&amp;rsquo;t catalogued before&lt;/a>&lt;/li>
-&lt;li>#1701: &lt;a href="https://github.com/openmls/openmls/pull/1701">fix: use &amp;ldquo;?&amp;rdquo; instead of match statement in cli&lt;/a>&lt;/li>
-&lt;li>#1700: &lt;a href="https://github.com/openmls/openmls/pull/1700">Change error in MemoryStorage and result handling in OpenMLS&lt;/a>&lt;/li>
-&lt;li>#1699: &lt;a href="https://github.com/openmls/openmls/pull/1699">Fixed &lt;code>openmls_rust_crypto&lt;/code> build with &lt;code>test-utils&lt;/code> feature&lt;/a>&lt;/li>
-&lt;li>#1698: &lt;a href="https://github.com/openmls/openmls/pull/1698">fix: typos in quick start&lt;/a>&lt;/li>
-&lt;li>#1697: &lt;a href="https://github.com/openmls/openmls/pull/1697">update dependencies&lt;/a>&lt;/li>
-&lt;li>#1696: &lt;a href="https://github.com/openmls/openmls/pull/1696">Delete .github/workflows/interop.yml&lt;/a>&lt;/li>
-&lt;li>#1693: &lt;a href="https://github.com/openmls/openmls/pull/1693">Improve &lt;code>log2&lt;/code> function&lt;/a>&lt;/li>
-&lt;li>#1682: &lt;a href="https://github.com/openmls/openmls/pull/1682">Sqlite storage provider crate&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="contributors">Contributors&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/Gusted">@Gusted&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/sandr01d">@sandr01d&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/keks">@keks&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/rozbb">@rozbb&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/franziskuskiefer">@franziskuskiefer&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/kkohbrok">@kkohbrok&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>This month in OpenMLS #4 - December 2024</title><link>https://blog.openmls.tech/posts/2025-01-06-this-month-in-openmls/</link><pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-01-06-this-month-in-openmls/</guid><description>&lt;p>Happy new year! 🍾&lt;/p>
-&lt;p>In the last month of 2024 we merged 4 PRs into OpenMLS.&lt;/p>
-&lt;p>We fixed a bug where credential lookup may have failed in certain cases (&lt;a href="https://github.com/openmls/openmls/pull/1691">#1691&lt;/a>) and improved semantic message validation
-to make OpenMLS even safer.&lt;/p>
-&lt;h3 id="merged-prs-december-2024">Merged PRs December 2024&lt;/h3>
-&lt;ul>
-&lt;li>#1694: &lt;a href="https://github.com/openmls/openmls/pull/1694">Add Validation Comments and Fix Application Message Epoch&lt;/a>&lt;/li>
-&lt;li>#1692: &lt;a href="https://github.com/openmls/openmls/pull/1692">update dependencies&lt;/a>&lt;/li>
-&lt;li>#1691: &lt;a href="https://github.com/openmls/openmls/pull/1691">Correctly Look Up Credentials and Public Keys for Members for Previous Epochs&lt;/a>&lt;/li>
-&lt;li>#1688: &lt;a href="https://github.com/openmls/openmls/pull/1688">Fix Typo and add GroupContextExtension example for Unknown Extensions&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="contributors">Contributors&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/franziskuskiefer">@franziskuskiefer&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/raphaelrobert">@raphaelrobert&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/keks">@keks&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>This month in OpenMLS #3 - November 2024</title><link>https://blog.openmls.tech/posts/2024-12-03-this-month-in-openmls/</link><pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-12-03-this-month-in-openmls/</guid><description>&lt;p>In November we merged 9 PRs into OpenMLS.&lt;/p>
-&lt;p>A major change has been the addition of a commit builder in &lt;a href="https://github.com/openmls/openmls/pull/1675">#1675&lt;/a>.
-The commit builder makes creating commits more convenient as you can see in the example below.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> message_bundle &lt;span style="color:#f92672">=&lt;/span> alice_group
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .commit_builder()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .propose_adds(Some(bob_key_package.key_package().clone()))
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .load_psks(provider.storage())
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .expect(&lt;span style="color:#e6db74">&amp;#34;error loading psks&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .build(
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> provider.rand(),
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> provider.crypto(),
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;amp;&lt;/span>alice_signature_keys,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">|&lt;/span>_proposal&lt;span style="color:#f92672">|&lt;/span> &lt;span style="color:#66d9ef">true&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> )
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .expect(&lt;span style="color:#e6db74">&amp;#34;error validating data and building commit&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .stage_commit(provider)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .expect(&lt;span style="color:#e6db74">&amp;#34;error staging commit&amp;#34;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> (mls_message_out, welcome, group_info) &lt;span style="color:#f92672">=&lt;/span> message_bundle.into_contents();
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="merged-prs-november-2024">Merged PRs November 2024&lt;/h3>
-&lt;ul>
-&lt;li>#1687: &lt;a href="https://github.com/openmls/openmls/pull/1687">Clippy fixes&lt;/a>&lt;/li>
-&lt;li>#1684: &lt;a href="https://github.com/openmls/openmls/pull/1684">Add validation annotations and a check&lt;/a>&lt;/li>
-&lt;li>#1683: &lt;a href="https://github.com/openmls/openmls/pull/1683">ci: Fix coverage&lt;/a>&lt;/li>
-&lt;li>#1679: &lt;a href="https://github.com/openmls/openmls/pull/1679">Fixing a few typos in the book&lt;/a>&lt;/li>
-&lt;li>#1678: &lt;a href="https://github.com/openmls/openmls/pull/1678">Update README.md ciphersuite names&lt;/a>&lt;/li>
-&lt;li>#1676: &lt;a href="https://github.com/openmls/openmls/pull/1676">Fix docs link&lt;/a>&lt;/li>
-&lt;li>#1675: &lt;a href="https://github.com/openmls/openmls/pull/1675">Add Commit Builder&lt;/a>&lt;/li>
-&lt;li>#1673: &lt;a href="https://github.com/openmls/openmls/pull/1673">Feat: Better error when attempting to decrypt own messages&lt;/a>&lt;/li>
-&lt;li>#1672: &lt;a href="https://github.com/openmls/openmls/pull/1672">&lt;code>VerifiableGroupInfo::epoch()&lt;/code> added to public API&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="contributors">Contributors&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/franziskuskiefer">@franziskuskiefer&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/kkohbrok">@kkohbrok&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/raphaelrobert">@raphaelrobert&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/josephlukefahr">@josephlukefahr&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/keks">@keks&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>This month in OpenMLS #2 - October 2024</title><link>https://blog.openmls.tech/posts/2024-11-04-this-month-in-openmls/</link><pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-11-04-this-month-in-openmls/</guid><description>&lt;p>The OpenMLS currently focuses on stabilising and improving APIs, as well as
-improving the &lt;a href="https://validation.openmls.tech">semantic validation checks in OpenMLS&lt;/a>.&lt;/p>
-&lt;h3 id="merged-prs-october-2024">Merged PRs October 2024&lt;/h3>
-&lt;ul>
-&lt;li>#1669: &lt;a href="https://github.com/openmls/openmls/pull/1669">Box PublicMessage in ProtocolMessage and allow some large enum variants&lt;/a>&lt;/li>
-&lt;li>#1668: &lt;a href="https://github.com/openmls/openmls/pull/1668">Add log messages for unsupported extension errors&lt;/a>&lt;/li>
-&lt;li>#1667: &lt;a href="https://github.com/openmls/openmls/pull/1667">Validation Progress&lt;/a>&lt;/li>
-&lt;li>#1666: &lt;a href="https://github.com/openmls/openmls/pull/1666">Add members and group_context getters to StagedWelcome&lt;/a>&lt;/li>
-&lt;li>#1664: &lt;a href="https://github.com/openmls/openmls/pull/1664">Add test for incorrect max_past_epochs value&lt;/a>&lt;/li>
-&lt;li>#1661: &lt;a href="https://github.com/openmls/openmls/pull/1661">Upstream some changes from XMTP&lt;/a>&lt;/li>
-&lt;li>#1659: &lt;a href="https://github.com/openmls/openmls/pull/1659">Fix a broken link in &lt;code>CONTRIBUTING.md&lt;/code>&lt;/a>&lt;/li>
-&lt;li>#1657: &lt;a href="https://github.com/openmls/openmls/pull/1657">Fix checks for leaf node validation (valn01xx) and valn1207&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="contributors">Contributors&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/erskingardner">@erskingardner&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/W95Psp">@W95Psp&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/neekolas">@neekolas&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/kkohbrok">@kkohbrok&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/keks">@keks&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/franziskuskiefer">@franziskuskiefer&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>This month in OpenMLS #1 - September 2024</title><link>https://blog.openmls.tech/posts/2024-10-01-this-month-in-openmls/</link><pubDate>Tue, 01 Oct 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-10-01-this-month-in-openmls/</guid><description>&lt;p>&lt;em>OpenMLS Development Update - September 2024&lt;/em>&lt;/p>
-&lt;p>Welcome to the inaugural post in our new series, designed to keep you informed
-about the latest developments on OpenMLS.&lt;/p>
-&lt;p>Each month, we&amp;rsquo;ll highlight significant changes, share key milestones, and
-provide insights into our ongoing work.&lt;/p>
-&lt;p>At the beginning of September we released &lt;a href="./2024-09-04-v0_6-release.md">OpenMLS v0.6&lt;/a> | &lt;a href="https://crates.io/crates/openmls/0.6.0">📦&lt;/a>.&lt;/p>
-&lt;p>The month has been pretty quiet after the release while we started to complete
-the &lt;a href="https://validation.openmls.tech">semantic validation checks in OpenMLS&lt;/a>
+post coming soon.&lt;/p&gt;</description></item><item><title>This month in OpenMLS #6 - February 2025</title><link>https://blog.openmls.tech/posts/2025-03-04-this-month-in-openmls/</link><pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-03-04-this-month-in-openmls/</guid><description>&lt;p&gt;February was as quiet month with some bug fixes and new tests.&lt;/p&gt;
+&lt;p&gt;We are also happy to welcome 2 new contributors &lt;a href="https://github.com/wysiwys"&gt;@wysiwys&lt;/a&gt;,
+and &lt;a href="https://github.com/shishkin"&gt;@shishkin&lt;/a&gt; 🎉&lt;/p&gt;
+&lt;h3 id="merged-prs-february-2025"&gt;Merged PRs February 2025&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;#1719: &lt;a href="https://github.com/openmls/openmls/pull/1719"&gt;add cname to gh-pages action&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1717: &lt;a href="https://github.com/openmls/openmls/pull/1717"&gt;Test duplicate signature key detection is not bypassed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1715: &lt;a href="https://github.com/openmls/openmls/pull/1715"&gt;Fix x25519-dalek crate link in README&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1704: &lt;a href="https://github.com/openmls/openmls/pull/1704"&gt;Add support for SelfRemove proposals&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="contributors"&gt;Contributors&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/franziskuskiefer"&gt;@franziskuskiefer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/kkohbrok"&gt;@kkohbrok&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/wysiwys"&gt;@wysiwys&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/shishkin"&gt;@shishkin&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>This month in OpenMLS #5 - January 2025</title><link>https://blog.openmls.tech/posts/2025-02-07-this-month-in-openmls/</link><pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-02-07-this-month-in-openmls/</guid><description>&lt;p&gt;January was focused on bug fixes and finishing the implementation and description
+of validation checks &lt;a href="https://github.com/openmls/openmls/pull/1702"&gt;#1702&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We are also happy to welcome 3 new contributors &lt;a href="https://github.com/Gusted"&gt;@Gusted&lt;/a&gt;,
+&lt;a href="https://github.com/sandr01d"&gt;@sandr01d&lt;/a&gt;, and &lt;a href="https://github.com/rozbb"&gt;@rozbb&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="merged-prs-january-2025"&gt;Merged PRs January 2025&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;#1713: &lt;a href="https://github.com/openmls/openmls/pull/1713"&gt;Drop dead code in signature.rs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1706: &lt;a href="https://github.com/openmls/openmls/pull/1706"&gt;Update labeler.yml&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1705: &lt;a href="https://github.com/openmls/openmls/pull/1705"&gt;Add annotations for valn0306&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1703: &lt;a href="https://github.com/openmls/openmls/pull/1703"&gt;fix: clear update proposals when a remove proposal is present for a given leaf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1702: &lt;a href="https://github.com/openmls/openmls/pull/1702"&gt;Annotate and fix missing validation checks, including ones we hadn&amp;rsquo;t catalogued before&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1701: &lt;a href="https://github.com/openmls/openmls/pull/1701"&gt;fix: use &amp;ldquo;?&amp;rdquo; instead of match statement in cli&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1700: &lt;a href="https://github.com/openmls/openmls/pull/1700"&gt;Change error in MemoryStorage and result handling in OpenMLS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1699: &lt;a href="https://github.com/openmls/openmls/pull/1699"&gt;Fixed &lt;code&gt;openmls_rust_crypto&lt;/code&gt; build with &lt;code&gt;test-utils&lt;/code&gt; feature&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1698: &lt;a href="https://github.com/openmls/openmls/pull/1698"&gt;fix: typos in quick start&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1697: &lt;a href="https://github.com/openmls/openmls/pull/1697"&gt;update dependencies&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1696: &lt;a href="https://github.com/openmls/openmls/pull/1696"&gt;Delete .github/workflows/interop.yml&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1693: &lt;a href="https://github.com/openmls/openmls/pull/1693"&gt;Improve &lt;code&gt;log2&lt;/code&gt; function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1682: &lt;a href="https://github.com/openmls/openmls/pull/1682"&gt;Sqlite storage provider crate&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="contributors"&gt;Contributors&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Gusted"&gt;@Gusted&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/sandr01d"&gt;@sandr01d&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/keks"&gt;@keks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rozbb"&gt;@rozbb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/franziskuskiefer"&gt;@franziskuskiefer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/kkohbrok"&gt;@kkohbrok&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>This month in OpenMLS #4 - December 2024</title><link>https://blog.openmls.tech/posts/2025-01-06-this-month-in-openmls/</link><pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-01-06-this-month-in-openmls/</guid><description>&lt;p&gt;Happy new year! 🍾&lt;/p&gt;
+&lt;p&gt;In the last month of 2024 we merged 4 PRs into OpenMLS.&lt;/p&gt;
+&lt;p&gt;We fixed a bug where credential lookup may have failed in certain cases (&lt;a href="https://github.com/openmls/openmls/pull/1691"&gt;#1691&lt;/a&gt;) and improved semantic message validation
+to make OpenMLS even safer.&lt;/p&gt;
+&lt;h3 id="merged-prs-december-2024"&gt;Merged PRs December 2024&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;#1694: &lt;a href="https://github.com/openmls/openmls/pull/1694"&gt;Add Validation Comments and Fix Application Message Epoch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1692: &lt;a href="https://github.com/openmls/openmls/pull/1692"&gt;update dependencies&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1691: &lt;a href="https://github.com/openmls/openmls/pull/1691"&gt;Correctly Look Up Credentials and Public Keys for Members for Previous Epochs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1688: &lt;a href="https://github.com/openmls/openmls/pull/1688"&gt;Fix Typo and add GroupContextExtension example for Unknown Extensions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="contributors"&gt;Contributors&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/franziskuskiefer"&gt;@franziskuskiefer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/raphaelrobert"&gt;@raphaelrobert&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/keks"&gt;@keks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>This month in OpenMLS #3 - November 2024</title><link>https://blog.openmls.tech/posts/2024-12-03-this-month-in-openmls/</link><pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-12-03-this-month-in-openmls/</guid><description>&lt;p&gt;In November we merged 9 PRs into OpenMLS.&lt;/p&gt;
+&lt;p&gt;A major change has been the addition of a commit builder in &lt;a href="https://github.com/openmls/openmls/pull/1675"&gt;#1675&lt;/a&gt;.
+The commit builder makes creating commits more convenient as you can see in the example below.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-rust" data-lang="rust"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;let&lt;/span&gt; message_bundle &lt;span style="color:#f92672"&gt;=&lt;/span&gt; alice_group
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .commit_builder()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .propose_adds(Some(bob_key_package.key_package().clone()))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .load_psks(provider.storage())
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .expect(&lt;span style="color:#e6db74"&gt;&amp;#34;error loading psks&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .build(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; provider.rand(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; provider.crypto(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;alice_signature_keys,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;|&lt;/span&gt;_proposal&lt;span style="color:#f92672"&gt;|&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;true&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; )
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .expect(&lt;span style="color:#e6db74"&gt;&amp;#34;error validating data and building commit&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .stage_commit(provider)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; .expect(&lt;span style="color:#e6db74"&gt;&amp;#34;error staging commit&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;let&lt;/span&gt; (mls_message_out, welcome, group_info) &lt;span style="color:#f92672"&gt;=&lt;/span&gt; message_bundle.into_contents();
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="merged-prs-november-2024"&gt;Merged PRs November 2024&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;#1687: &lt;a href="https://github.com/openmls/openmls/pull/1687"&gt;Clippy fixes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1684: &lt;a href="https://github.com/openmls/openmls/pull/1684"&gt;Add validation annotations and a check&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1683: &lt;a href="https://github.com/openmls/openmls/pull/1683"&gt;ci: Fix coverage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1679: &lt;a href="https://github.com/openmls/openmls/pull/1679"&gt;Fixing a few typos in the book&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1678: &lt;a href="https://github.com/openmls/openmls/pull/1678"&gt;Update README.md ciphersuite names&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1676: &lt;a href="https://github.com/openmls/openmls/pull/1676"&gt;Fix docs link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1675: &lt;a href="https://github.com/openmls/openmls/pull/1675"&gt;Add Commit Builder&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1673: &lt;a href="https://github.com/openmls/openmls/pull/1673"&gt;Feat: Better error when attempting to decrypt own messages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1672: &lt;a href="https://github.com/openmls/openmls/pull/1672"&gt;&lt;code&gt;VerifiableGroupInfo::epoch()&lt;/code&gt; added to public API&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="contributors"&gt;Contributors&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/franziskuskiefer"&gt;@franziskuskiefer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/kkohbrok"&gt;@kkohbrok&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/raphaelrobert"&gt;@raphaelrobert&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/josephlukefahr"&gt;@josephlukefahr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/keks"&gt;@keks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>This month in OpenMLS #2 - October 2024</title><link>https://blog.openmls.tech/posts/2024-11-04-this-month-in-openmls/</link><pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-11-04-this-month-in-openmls/</guid><description>&lt;p&gt;The OpenMLS currently focuses on stabilising and improving APIs, as well as
+improving the &lt;a href="https://validation.openmls.tech"&gt;semantic validation checks in OpenMLS&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="merged-prs-october-2024"&gt;Merged PRs October 2024&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;#1669: &lt;a href="https://github.com/openmls/openmls/pull/1669"&gt;Box PublicMessage in ProtocolMessage and allow some large enum variants&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1668: &lt;a href="https://github.com/openmls/openmls/pull/1668"&gt;Add log messages for unsupported extension errors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1667: &lt;a href="https://github.com/openmls/openmls/pull/1667"&gt;Validation Progress&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1666: &lt;a href="https://github.com/openmls/openmls/pull/1666"&gt;Add members and group_context getters to StagedWelcome&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1664: &lt;a href="https://github.com/openmls/openmls/pull/1664"&gt;Add test for incorrect max_past_epochs value&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1661: &lt;a href="https://github.com/openmls/openmls/pull/1661"&gt;Upstream some changes from XMTP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1659: &lt;a href="https://github.com/openmls/openmls/pull/1659"&gt;Fix a broken link in &lt;code&gt;CONTRIBUTING.md&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1657: &lt;a href="https://github.com/openmls/openmls/pull/1657"&gt;Fix checks for leaf node validation (valn01xx) and valn1207&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="contributors"&gt;Contributors&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/erskingardner"&gt;@erskingardner&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/W95Psp"&gt;@W95Psp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/neekolas"&gt;@neekolas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/kkohbrok"&gt;@kkohbrok&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/keks"&gt;@keks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/franziskuskiefer"&gt;@franziskuskiefer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>This month in OpenMLS #1 - September 2024</title><link>https://blog.openmls.tech/posts/2024-10-01-this-month-in-openmls/</link><pubDate>Tue, 01 Oct 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-10-01-this-month-in-openmls/</guid><description>&lt;p&gt;&lt;em&gt;OpenMLS Development Update - September 2024&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Welcome to the inaugural post in our new series, designed to keep you informed
+about the latest developments on OpenMLS.&lt;/p&gt;
+&lt;p&gt;Each month, we&amp;rsquo;ll highlight significant changes, share key milestones, and
+provide insights into our ongoing work.&lt;/p&gt;
+&lt;p&gt;At the beginning of September we released &lt;a href="./2024-09-04-v0_6-release.md"&gt;OpenMLS v0.6&lt;/a&gt; | &lt;a href="https://crates.io/crates/openmls/0.6.0"&gt;📦&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The month has been pretty quiet after the release while we started to complete
+the &lt;a href="https://validation.openmls.tech"&gt;semantic validation checks in OpenMLS&lt;/a&gt;
 to ensure that OpenMLS is always safe to use.
-Read more about it in &lt;a href="../2024-09-30-taking-stock-of-validation-checks">Jan&amp;rsquo;s blog post&lt;/a>.&lt;/p></description></item><item><title>Taking Stock of Validation Checks</title><link>https://blog.openmls.tech/posts/2024-09-30-taking-stock-of-validation-checks/</link><pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-09-30-taking-stock-of-validation-checks/</guid><description>&lt;p>When implementing cryptographic protocols, probably the most important thing is to not forget validating all inputs. Failing to do so can lead to inadvertant leakage of private information, state corruption, impersonation attacks&amp;hellip; all kinds of vulnerabilities.&lt;/p>
-&lt;p>To give an example, you might remember &lt;a href="https://www.imperialviolet.org/2014/02/22/applebug.html">the &amp;ldquo;goto fail&amp;rdquo; vulnerability&lt;/a>, a bug in the TLS implementation used in iOS. Here, the verification function of signatures sent along with the &lt;code>ServerKeyExchange&lt;/code> message, which ties the server identity to the transcript and ephemeral key material. Due to a hard-to-spot slipup, it returned success early and never really checked the signature, which would allow an attacker to man-in-the-middle the connection. While in this case they didn&amp;rsquo;t just &lt;em>forget&lt;/em> to do the check, it does demonstrate why these checks are important.&lt;/p></description></item><item><title>OpenMLS 0.6 released</title><link>https://blog.openmls.tech/posts/2024-09-04-v0_6-release/</link><pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-09-04-v0_6-release/</guid><description>&lt;p>Today, we are releasing version 0.6 of OpenMLS. In this post we’ll go over the most significant changes since our last release.&lt;/p>
-&lt;h1 id="new-storage-provider">New Storage Provider&lt;/h1>
-&lt;p>To make it easier to persist group state, the &lt;code>KeyStoreProvider&lt;/code> was replaced with the more powerful &lt;code>StorageProvider&lt;/code> trait for tracking the state of a group or a party. This includes keys, but also other group state like the ratchet tree and the group context. OpenMLS writes to the storage at the end of any successful operation. This means that if the provider is backed by some persistent memory, the entire long-lived state of OpenMLS is automatically persisted.&lt;/p></description></item><item><title>Post-Quantum OpenMLS</title><link>https://blog.openmls.tech/posts/2024-04-11-pq-openmls/</link><pubDate>Thu, 11 Apr 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-04-11-pq-openmls/</guid><description>Get started with post-quantum secure end-to-end encrypted with OpenMLS.</description></item><item><title>OpenMLS 0.5 released</title><link>https://blog.openmls.tech/posts/2023-07-20-v0_5-release/</link><pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2023-07-20-v0_5-release/</guid><description>&lt;p>Today, we are releasing OpenMLS v0.5. This release has been a while in the making and covers substantial changes since the last release. We are grateful for &lt;a href="https://openmls.tech/blog/2022-10-19-update/">the support of the Sovereign Tech Fund&lt;/a> towards this goal. These are some of the changes:&lt;/p>
-&lt;ul>
-&lt;li>The implementation caught up with the latest changes in the protocol specification. The last version was roughly based on draft 12. Since then, the protocol has iteratively evolved all the way through draft 20. The library now implements the wire format of messages and mechanisms specified in &lt;a href="https://datatracker.ietf.org/doc/html/rfc9420">RFC 9420&lt;/a>.&lt;/li>
-&lt;li>Extensive &lt;a href="https://github.com/mlswg/mls-implementations">interoperability testing&lt;/a> has been done between OpenMLS, Cisco’s MLS++, and another closed-source MLS protocol implementation. The goal of this exercise was to validate the last set of changes in the specification and ascertain that all implementations implemented the specification correctly.&lt;/li>
-&lt;/ul>
-&lt;h1 id="the-next-phase">The next phase&lt;/h1>
-&lt;p>Until recently, the specification was a moving target and so was the implementation. Now that the specification is no longer subject to changes, the implementation can finally mature in terms of correctness, ease-of-use, and efficiency.
-We would like OpenMLS to be as useful as possible to those who consider end-to-end encryption with MLS. We are ready to evolve the library in the following areas:&lt;/p></description></item><item><title>OpenMLS Update</title><link>https://blog.openmls.tech/posts/2022-10-19-update/</link><pubDate>Wed, 19 Oct 2022 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2022-10-19-update/</guid><description>&lt;p>&lt;em>After a few months of silence, we are picking up work on OpenMLS again! 🎉&lt;/em>&lt;/p>
-&lt;p>&lt;a href="https://phnx.im/">Phoenix R&amp;amp;D&lt;/a> and &lt;a href="https://www.cryspen.com">Cryspen&lt;/a> join forces to bring OpenMLS closer to v1.0.&lt;/p>
-&lt;p>The &lt;a href="https://messaginglayersecurity.rocks/mls-protocol/draft-ietf-mls-protocol.html">MLS protocol&lt;/a> draft is in the IETF working group&amp;rsquo;s &lt;a href="https://mailarchive.ietf.org/arch/msg/mls/bOhxmpo70T-ikDd40OqQfst64gE/">last call&lt;/a> and is thus
+Read more about it in &lt;a href="../2024-09-30-taking-stock-of-validation-checks"&gt;Jan&amp;rsquo;s blog post&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Taking Stock of Validation Checks</title><link>https://blog.openmls.tech/posts/2024-09-30-taking-stock-of-validation-checks/</link><pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-09-30-taking-stock-of-validation-checks/</guid><description>&lt;p&gt;When implementing cryptographic protocols, probably the most important thing is to not forget validating all inputs. Failing to do so can lead to inadvertant leakage of private information, state corruption, impersonation attacks&amp;hellip; all kinds of vulnerabilities.&lt;/p&gt;
+&lt;p&gt;To give an example, you might remember &lt;a href="https://www.imperialviolet.org/2014/02/22/applebug.html"&gt;the &amp;ldquo;goto fail&amp;rdquo; vulnerability&lt;/a&gt;, a bug in the TLS implementation used in iOS. Here, the verification function of signatures sent along with the &lt;code&gt;ServerKeyExchange&lt;/code&gt; message, which ties the server identity to the transcript and ephemeral key material. Due to a hard-to-spot slipup, it returned success early and never really checked the signature, which would allow an attacker to man-in-the-middle the connection. While in this case they didn&amp;rsquo;t just &lt;em&gt;forget&lt;/em&gt; to do the check, it does demonstrate why these checks are important.&lt;/p&gt;</description></item><item><title>OpenMLS 0.6 released</title><link>https://blog.openmls.tech/posts/2024-09-04-v0_6-release/</link><pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-09-04-v0_6-release/</guid><description>&lt;p&gt;Today, we are releasing version 0.6 of OpenMLS. In this post we’ll go over the most significant changes since our last release.&lt;/p&gt;
+&lt;h1 id="new-storage-provider"&gt;New Storage Provider&lt;/h1&gt;
+&lt;p&gt;To make it easier to persist group state, the &lt;code&gt;KeyStoreProvider&lt;/code&gt; was replaced with the more powerful &lt;code&gt;StorageProvider&lt;/code&gt; trait for tracking the state of a group or a party. This includes keys, but also other group state like the ratchet tree and the group context. OpenMLS writes to the storage at the end of any successful operation. This means that if the provider is backed by some persistent memory, the entire long-lived state of OpenMLS is automatically persisted.&lt;/p&gt;</description></item><item><title>Post-Quantum OpenMLS</title><link>https://blog.openmls.tech/posts/2024-04-11-pq-openmls/</link><pubDate>Thu, 11 Apr 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-04-11-pq-openmls/</guid><description>Get started with post-quantum secure end-to-end encrypted with OpenMLS.</description></item><item><title>OpenMLS 0.5 released</title><link>https://blog.openmls.tech/posts/2023-07-20-v0_5-release/</link><pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2023-07-20-v0_5-release/</guid><description>&lt;p&gt;Today, we are releasing OpenMLS v0.5. This release has been a while in the making and covers substantial changes since the last release. We are grateful for &lt;a href="https://openmls.tech/blog/2022-10-19-update/"&gt;the support of the Sovereign Tech Fund&lt;/a&gt; towards this goal. These are some of the changes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The implementation caught up with the latest changes in the protocol specification. The last version was roughly based on draft 12. Since then, the protocol has iteratively evolved all the way through draft 20. The library now implements the wire format of messages and mechanisms specified in &lt;a href="https://datatracker.ietf.org/doc/html/rfc9420"&gt;RFC 9420&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Extensive &lt;a href="https://github.com/mlswg/mls-implementations"&gt;interoperability testing&lt;/a&gt; has been done between OpenMLS, Cisco’s MLS++, and another closed-source MLS protocol implementation. The goal of this exercise was to validate the last set of changes in the specification and ascertain that all implementations implemented the specification correctly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="the-next-phase"&gt;The next phase&lt;/h1&gt;
+&lt;p&gt;Until recently, the specification was a moving target and so was the implementation. Now that the specification is no longer subject to changes, the implementation can finally mature in terms of correctness, ease-of-use, and efficiency.
+We would like OpenMLS to be as useful as possible to those who consider end-to-end encryption with MLS. We are ready to evolve the library in the following areas:&lt;/p&gt;</description></item><item><title>OpenMLS Update</title><link>https://blog.openmls.tech/posts/2022-10-19-update/</link><pubDate>Wed, 19 Oct 2022 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2022-10-19-update/</guid><description>&lt;p&gt;&lt;em&gt;After a few months of silence, we are picking up work on OpenMLS again! 🎉&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://phnx.im/"&gt;Phoenix R&amp;amp;D&lt;/a&gt; and &lt;a href="https://www.cryspen.com"&gt;Cryspen&lt;/a&gt; join forces to bring OpenMLS closer to v1.0.&lt;/p&gt;
+&lt;p&gt;The &lt;a href="https://messaginglayersecurity.rocks/mls-protocol/draft-ietf-mls-protocol.html"&gt;MLS protocol&lt;/a&gt; draft is in the IETF working group&amp;rsquo;s &lt;a href="https://mailarchive.ietf.org/arch/msg/mls/bOhxmpo70T-ikDd40OqQfst64gE/"&gt;last call&lt;/a&gt; and is thus
 on track to become an RFC soon.
 We want to make sure that OpenMLS is ready for wider adoption by the time the
 RFC is ready.
 To achieve this we start by catching up with all the changes to the protocol
 (up to the current draft-16), improving test coverage of the code, and working
-towards a more comprehensive test framework for interoperability.&lt;/p></description></item><item><title>OpenMLS v0.4 Release</title><link>https://blog.openmls.tech/posts/2022-02-28-v0_4-release/</link><pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2022-02-28-v0_4-release/</guid><description>&lt;p>&lt;strong>Today, we are excited to announce the release of &lt;a href="https://github.com/openmls/openmls/releases/tag/v0.4.0">v0.4 of OpenMLS&lt;/a>! 🎉&lt;/strong>&lt;/p>
-&lt;p>Some time has passed since we wrote about our &lt;a href="https://openmls.tech/blog/2021-10-19-openmls-04-roadmap/">roadmap to v0.4&lt;/a>. In this post, we want to provide some insight into what has happened in the development of OpenMLS generally, but also relative to the goals we included in the roadmap.&lt;/p>
-&lt;p>Our high-level goal with v0.4 was to reach a state where we have an API stable enough and an implementation robust enough such that people interested in OpenMLS can start exploring it in the context of their own projects. However, this is not v1.0 and we can neither promise that the API won’t change in the future, nor do we advise using OpenMLS in production or indeed in any security-sensitive context. With this disclaimer out of the way, let’s see what has happened in these past months.&lt;/p></description></item><item><title>OpenMLS v0.4 Roadmap</title><link>https://blog.openmls.tech/posts/2021-10-19-openmls-04-roadmap/</link><pubDate>Tue, 19 Oct 2021 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2021-10-19-openmls-04-roadmap/</guid><description>&lt;p>It&amp;rsquo;s time for another update on OpenMLS because many things are happening behind the scenes.&lt;/p>
-&lt;p>Today we are excited to announce a public roadmap for OpenMLS v0.4. This will not even be close to a v1.0 release because the &lt;a href="https://datatracker.ietf.org/doc/draft-ietf-mls-protocol/">spec&lt;/a> is still not finished and it&amp;rsquo;s unclear how the library will be used. Nonetheless will v0.4 be a significant release with a mostly stable API and most functionality being implemented.&lt;/p>
-&lt;p>Over the next five months we will fix the most pressing issues and make OpenMLS a usable MLS library for consumers to use. We are well aware that there is almost no experience with using MLS in a messaging product. (Cisco&amp;rsquo;s Webex is rolling out MLS for &lt;a href="https://www.btconferencing.com/downloads-library/services/webex-versions/t41/Webex_Latest_Channel_Customer_Monthly_Update_41.7.pdf">end-to-end encrypted video calls&lt;/a> as part of their &lt;a href="https://www.cisco.com/c/en/us/solutions/collateral/collaboration/white-paper-c11-744553.html">zero-trust initiative&lt;/a> right now.) The goal is therefore to offer a mostly stable API and complete feature set for consumers to start using it. However, we expect a significant feedback cycle to improve the APIs to make OpenMLS better suited for applications.&lt;/p></description></item><item><title>OpenMLS Performance</title><link>https://blog.openmls.tech/posts/2021-05-18-openmls-first-benchmarks/</link><pubDate>Tue, 18 May 2021 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2021-05-18-openmls-first-benchmarks/</guid><description>&lt;p>In this blog post, I explore how MLS&amp;rsquo; aspiration &lt;a href="https://datatracker.ietf.org/doc/charter-ietf-mls/">to be scalable&lt;/a> manifests itself in OpenMLS.&lt;/p>
-&lt;p>The charter in particular claims the following:&lt;/p>
-&lt;blockquote>
-&lt;p>Resource requirements have good scaling in the size of the group (preferably sub-linear)&lt;/p>&lt;/blockquote>
-&lt;p>While performance can be theoretically analysed for MLS it is also interesting to see whether the performance goals hold up in a real implementation.
+towards a more comprehensive test framework for interoperability.&lt;/p&gt;</description></item><item><title>OpenMLS v0.4 Release</title><link>https://blog.openmls.tech/posts/2022-02-28-v0_4-release/</link><pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2022-02-28-v0_4-release/</guid><description>&lt;p&gt;&lt;strong&gt;Today, we are excited to announce the release of &lt;a href="https://github.com/openmls/openmls/releases/tag/v0.4.0"&gt;v0.4 of OpenMLS&lt;/a&gt;! 🎉&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Some time has passed since we wrote about our &lt;a href="https://openmls.tech/blog/2021-10-19-openmls-04-roadmap/"&gt;roadmap to v0.4&lt;/a&gt;. In this post, we want to provide some insight into what has happened in the development of OpenMLS generally, but also relative to the goals we included in the roadmap.&lt;/p&gt;
+&lt;p&gt;Our high-level goal with v0.4 was to reach a state where we have an API stable enough and an implementation robust enough such that people interested in OpenMLS can start exploring it in the context of their own projects. However, this is not v1.0 and we can neither promise that the API won’t change in the future, nor do we advise using OpenMLS in production or indeed in any security-sensitive context. With this disclaimer out of the way, let’s see what has happened in these past months.&lt;/p&gt;</description></item><item><title>OpenMLS v0.4 Roadmap</title><link>https://blog.openmls.tech/posts/2021-10-19-openmls-04-roadmap/</link><pubDate>Tue, 19 Oct 2021 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2021-10-19-openmls-04-roadmap/</guid><description>&lt;p&gt;It&amp;rsquo;s time for another update on OpenMLS because many things are happening behind the scenes.&lt;/p&gt;
+&lt;p&gt;Today we are excited to announce a public roadmap for OpenMLS v0.4. This will not even be close to a v1.0 release because the &lt;a href="https://datatracker.ietf.org/doc/draft-ietf-mls-protocol/"&gt;spec&lt;/a&gt; is still not finished and it&amp;rsquo;s unclear how the library will be used. Nonetheless will v0.4 be a significant release with a mostly stable API and most functionality being implemented.&lt;/p&gt;
+&lt;p&gt;Over the next five months we will fix the most pressing issues and make OpenMLS a usable MLS library for consumers to use. We are well aware that there is almost no experience with using MLS in a messaging product. (Cisco&amp;rsquo;s Webex is rolling out MLS for &lt;a href="https://www.btconferencing.com/downloads-library/services/webex-versions/t41/Webex_Latest_Channel_Customer_Monthly_Update_41.7.pdf"&gt;end-to-end encrypted video calls&lt;/a&gt; as part of their &lt;a href="https://www.cisco.com/c/en/us/solutions/collateral/collaboration/white-paper-c11-744553.html"&gt;zero-trust initiative&lt;/a&gt; right now.) The goal is therefore to offer a mostly stable API and complete feature set for consumers to start using it. However, we expect a significant feedback cycle to improve the APIs to make OpenMLS better suited for applications.&lt;/p&gt;</description></item><item><title>OpenMLS Performance</title><link>https://blog.openmls.tech/posts/2021-05-18-openmls-first-benchmarks/</link><pubDate>Tue, 18 May 2021 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2021-05-18-openmls-first-benchmarks/</guid><description>&lt;p&gt;In this blog post, I explore how MLS&amp;rsquo; aspiration &lt;a href="https://datatracker.ietf.org/doc/charter-ietf-mls/"&gt;to be scalable&lt;/a&gt; manifests itself in OpenMLS.&lt;/p&gt;
+&lt;p&gt;The charter in particular claims the following:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Resource requirements have good scaling in the size of the group (preferably sub-linear)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;While performance can be theoretically analysed for MLS it is also interesting to see whether the performance goals hold up in a real implementation.
 This of course only looks at a single implementation.
 Nonetheless, I think that it gives a good impression on the actual performance of MLS implementations.
-Particularly because OpenMLS at this point is not optimised but rather implements the MLS spec as is.&lt;/p></description></item><item><title>OpenMLS is growing!</title><link>https://blog.openmls.tech/posts/2021-04-29-openmls-is-growing/</link><pubDate>Thu, 29 Apr 2021 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2021-04-29-openmls-is-growing/</guid><description>&lt;p>We’re pleased to announce that we are engaging with &lt;a href="https://prosecco.gforge.inria.fr/">INRIA Paris&lt;/a> to cooperate on OpenMLS.&lt;/p></description></item></channel></rss>
+Particularly because OpenMLS at this point is not optimised but rather implements the MLS spec as is.&lt;/p&gt;</description></item><item><title>OpenMLS is growing!</title><link>https://blog.openmls.tech/posts/2021-04-29-openmls-is-growing/</link><pubDate>Thu, 29 Apr 2021 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2021-04-29-openmls-is-growing/</guid><description>&lt;p&gt;We’re pleased to announce that we are engaging with &lt;a href="https://prosecco.gforge.inria.fr/"&gt;INRIA Paris&lt;/a&gt; to cooperate on OpenMLS.&lt;/p&gt;</description></item></channel></rss>
