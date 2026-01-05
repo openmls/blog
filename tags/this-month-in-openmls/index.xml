@@ -1,4 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>This-Month-in-Openmls on OpenMLS</title><link>https://blog.openmls.tech/tags/this-month-in-openmls/</link><description>Recent content in This-Month-in-Openmls on OpenMLS</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Mon, 01 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/tags/this-month-in-openmls/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #15 - November 2025</title><link>https://blog.openmls.tech/posts/2025-12-01-this-month-in-openmls/</link><pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-12-01-this-month-in-openmls/</guid><description>&lt;p&gt;We merged 22 PRs in November.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>This-Month-in-Openmls on OpenMLS</title><link>https://blog.openmls.tech/tags/this-month-in-openmls/</link><description>Recent content in This-Month-in-Openmls on OpenMLS</description><generator>Hugo -- 0.154.2</generator><language>en-us</language><lastBuildDate>Mon, 05 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/tags/this-month-in-openmls/index.xml" rel="self" type="application/rss+xml"/><item><title>This month in OpenMLS #16 - December 2025</title><link>https://blog.openmls.tech/posts/2026-01-05-this-month-in-openmls/</link><pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2026-01-05-this-month-in-openmls/</guid><description>&lt;p&gt;December with the holiday season was a quiet month for OpenMLS.&lt;/p&gt;
+&lt;h3 id="merged-prs-december-2025"&gt;Merged PRs December 2025&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;#1919: &lt;a href="https://github.com/openmls/openmls/pull/1919"&gt;chore: update hpke-rs to 0.5.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1911: &lt;a href="https://github.com/openmls/openmls/pull/1911"&gt;bump hpke to 0.4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;#1910: &lt;a href="https://github.com/openmls/openmls/pull/1910"&gt;fix: correction in tree operations KAT&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="contributors"&gt;Contributors&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/raphaelrobert"&gt;@raphaelrobert&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/franziskuskiefer"&gt;@franziskuskiefer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>This month in OpenMLS #15 - November 2025</title><link>https://blog.openmls.tech/posts/2025-12-01-this-month-in-openmls/</link><pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2025-12-01-this-month-in-openmls/</guid><description>&lt;p&gt;We merged 22 PRs in November.&lt;/p&gt;
 &lt;h3 id="new-features-and-fixes-"&gt;New Features and Fixes 🚀&lt;/h3&gt;
 &lt;p&gt;We added a couple features from the MLS exntesions draft.&lt;/p&gt;
 &lt;ul&gt;
