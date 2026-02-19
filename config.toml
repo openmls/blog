@@ -12,6 +12,10 @@ katex = true
 mainSections = ["posts"]
 ShowFullTextinRSS = true
 
+[params.author]
+name = "OpenMLS"
+email = "hello@openmls.tech"
+
 [params.homeInfoParams]
 title = "OpenMLS"
 content = "The Open MLS Implementation"
