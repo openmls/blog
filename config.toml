@@ -10,6 +10,7 @@ pagerSize = 10
 smartToc = true
 katex = true
 mainSections = ["posts"]
+ShowFullTextinRSS = true
 
 [params.homeInfoParams]
 title = "OpenMLS"
