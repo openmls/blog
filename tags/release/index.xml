@@ -1,12 +1,206 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Release on OpenMLS</title><link>https://blog.openmls.tech/tags/release/</link><description>Recent content in Release on OpenMLS</description><generator>Hugo -- 0.155.2</generator><language>en-us</language><lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/tags/release/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenMLS 0.6 released</title><link>https://blog.openmls.tech/posts/2024-09-04-v0_6-release/</link><pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-09-04-v0_6-release/</guid><description>&lt;p&gt;Today, we are releasing version 0.6 of OpenMLS. In this post we’ll go over the most significant changes since our last release.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Release on OpenMLS</title><link>https://blog.openmls.tech/tags/release/</link><description>Recent content in Release on OpenMLS</description><generator>Hugo -- 0.156.0</generator><language>en-us</language><managingEditor>hello@openmls.tech (OpenMLS)</managingEditor><webMaster>hello@openmls.tech (OpenMLS)</webMaster><lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/tags/release/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenMLS 0.6 released</title><link>https://blog.openmls.tech/posts/2024-09-04-v0_6-release/</link><pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate><author>hello@openmls.tech (OpenMLS)</author><guid>https://blog.openmls.tech/posts/2024-09-04-v0_6-release/</guid><description>&lt;p&gt;Today, we are releasing version 0.6 of OpenMLS. In this post we’ll go over the most significant changes since our last release.&lt;/p&gt;
 &lt;h1 id="new-storage-provider"&gt;New Storage Provider&lt;/h1&gt;
-&lt;p&gt;To make it easier to persist group state, the &lt;code&gt;KeyStoreProvider&lt;/code&gt; was replaced with the more powerful &lt;code&gt;StorageProvider&lt;/code&gt; trait for tracking the state of a group or a party. This includes keys, but also other group state like the ratchet tree and the group context. OpenMLS writes to the storage at the end of any successful operation. This means that if the provider is backed by some persistent memory, the entire long-lived state of OpenMLS is automatically persisted.&lt;/p&gt;</description></item><item><title>OpenMLS 0.5 released</title><link>https://blog.openmls.tech/posts/2023-07-20-v0_5-release/</link><pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2023-07-20-v0_5-release/</guid><description>&lt;p&gt;Today, we are releasing OpenMLS v0.5. This release has been a while in the making and covers substantial changes since the last release. We are grateful for &lt;a href="https://openmls.tech/blog/2022-10-19-update/"&gt;the support of the Sovereign Tech Fund&lt;/a&gt; towards this goal. These are some of the changes:&lt;/p&gt;
+&lt;p&gt;To make it easier to persist group state, the &lt;code&gt;KeyStoreProvider&lt;/code&gt; was replaced with the more powerful &lt;code&gt;StorageProvider&lt;/code&gt; trait for tracking the state of a group or a party. This includes keys, but also other group state like the ratchet tree and the group context. OpenMLS writes to the storage at the end of any successful operation. This means that if the provider is backed by some persistent memory, the entire long-lived state of OpenMLS is automatically persisted.&lt;/p&gt;</description><content:encoded><![CDATA[<p>Today, we are releasing version 0.6 of OpenMLS. In this post we’ll go over the most significant changes since our last release.</p>
+<h1 id="new-storage-provider">New Storage Provider</h1>
+<p>To make it easier to persist group state, the <code>KeyStoreProvider</code> was replaced with the more powerful <code>StorageProvider</code> trait for tracking the state of a group or a party. This includes keys, but also other group state like the ratchet tree and the group context. OpenMLS writes to the storage at the end of any successful operation. This means that if the provider is backed by some persistent memory, the entire long-lived state of OpenMLS is automatically persisted.</p>
+<p>🔗 <a href="https://github.com/openmls/openmls/pull/1565">Github PR</a><br>
+🔗 <a href="https://book.openmls.tech/traits/traits.html#storageprovider">Documentation</a></p>
+<h1 id="api-changes">API Changes</h1>
+<p>In an effort to make OpenMLS as easy to use as possible, we made some API changes to rid of a few footguns and provide better ergonomics.</p>
+<h2 id="a-staged-api-for-welcomes">A Staged API for Welcomes</h2>
+<p>In the old API, it was not possible to inspect the details of a group one is invited to without joining it. There was a workaround, but v0.6 solves the problem cleanly by making joining from a Welcome message a two-stage process: First the welcome is parsed and decrypted into a <code>StagedWelcome</code>. This value can be used for inspecting the group, and then turned into a full <code>MlsGroup</code>.</p>
+<p>🔗 <a href="https://github.com/openmls/openmls/issues/1508">Github Issue</a><br>
+🔗 <a href="https://book.openmls.tech/user_manual/join_from_welcome.html">Documentation</a></p>
+<h2 id="split-group-configuration-into-separate-types">Split Group Configuration into separate types</h2>
+<p>The <code>MlsGroupConfig</code> struct was needed both for creating a new group and for joining an existing one from a Welcome message. We replaced it with the two structs <code>MlsGroupCreateConfig</code> and <code>MlsGroupJoinConfig</code>. This removes the somewhat awkward situation that, when joining a group, the user could set config items that are only relevant to creating the group.</p>
+<p>🔗 <a href="https://github.com/openmls/openmls/pull/1464">Github PR</a></p>
+<h2 id="a-clean-way-to-update-the-own-leaf-node">A Clean Way to Update the Own Leaf Node</h2>
+<p>The way we handled the creation of self-update proposals was not ideal, and required us to modify the leaf node that was passed into the <code>propose_self_update</code> function. We did an overhaul of the API here and now instead pass in the information that is required to build the new leaf node (in the form of <code>LeafNodeParameters</code>), which is then created by the <code>propose_self_update</code> itself.</p>
+<p>🔗 <a href="https://github.com/openmls/openmls/pull/1606">Github PR</a></p>
+<h2 id="builders-builders-more-builders">Builders, Builders, more Builders</h2>
+<p>We added builders for many more types to make them more easily constructible:</p>
+<ul>
+<li><code>MlsGroup</code></li>
+<li><code>KeyPackage</code></li>
+<li><code>Capabilities</code></li>
+<li><code>LeafNodeParameters</code></li>
+</ul>
+<h2 id="libcrux-crypto-provider-and-post-quantum-ciphersuite">Libcrux Crypto Provider and Post-Quantum Ciphersuite</h2>
+<p>We added a second crypto provider, that is (for the most part) backed by libcrux instead of the RustCrypto crates. Libcrux is a high-assurance cryptographic library, which means it uses formal methods to achieve higher confidence in the correctness of the implementation.</p>
+<p>Libcrux also contains code for Kyber/ML-KEM, a public key encryption algorithm that is designed to be resistant against quantum computer attacks. We provide a ciphersuite using it in hybrid mode (i.e. together with a more established public key algorithm known to be secure against attacks with classical computers) using the XWing combiner</p>
+<p>🔗 <a href="https://blog.openmls.tech/posts/2024-04-11-pq-openmls/">Blog Post</a></p>
+<h1 id="progress-on-long-term-efforts">Progress on Long-Term Efforts</h1>
+<p>We started an effort to make sure that we do all the validation checks mandated by the RFC, and we do and test them. For this, we started making <a href="https://github.com/openmls/validation.dhall">a machine-readable list</a> of all the checks, and generating an <a href="https://validation.openmls.tech">HTML dashboard</a>. We started writing some new tests and referencing them in the dashboard.</p>
+<p>We also started some refactoring around the group state. There was a historic distinction between MlsGroup and CoreGroup. This distinction is making increasingly little sense, and we are in an effort to merge the two. However, since this is a core piece of the library, doing it all at once would be a very large change that may introduce a number of new bugs. In the spirit of “first make the change easy, then make the easy change”, we decided this should be a longer-term transition. We made some progress already, but CoreGroup will stick around for a little longer.</p>
+<p>Another area we made a little progress in is Wasm support. In order to keep an eye on the Wasm binary size of the OpenMLS library, we added a build on CI for some minimal Wasm bindings and fail if the gzip-compressed binary is larger than 500 kB. This means that while it will add considerable page load cost, OpenMLS can be used on the web today!</p>
+]]></content:encoded></item><item><title>OpenMLS 0.5 released</title><link>https://blog.openmls.tech/posts/2023-07-20-v0_5-release/</link><pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate><author>hello@openmls.tech (OpenMLS)</author><guid>https://blog.openmls.tech/posts/2023-07-20-v0_5-release/</guid><description>&lt;p&gt;Today, we are releasing OpenMLS v0.5. This release has been a while in the making and covers substantial changes since the last release. We are grateful for &lt;a href="https://openmls.tech/blog/2022-10-19-update/"&gt;the support of the Sovereign Tech Fund&lt;/a&gt; towards this goal. These are some of the changes:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The implementation caught up with the latest changes in the protocol specification. The last version was roughly based on draft 12. Since then, the protocol has iteratively evolved all the way through draft 20. The library now implements the wire format of messages and mechanisms specified in &lt;a href="https://datatracker.ietf.org/doc/html/rfc9420"&gt;RFC 9420&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Extensive &lt;a href="https://github.com/mlswg/mls-implementations"&gt;interoperability testing&lt;/a&gt; has been done between OpenMLS, Cisco’s MLS++, and another closed-source MLS protocol implementation. The goal of this exercise was to validate the last set of changes in the specification and ascertain that all implementations implemented the specification correctly.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="the-next-phase"&gt;The next phase&lt;/h1&gt;
 &lt;p&gt;Until recently, the specification was a moving target and so was the implementation. Now that the specification is no longer subject to changes, the implementation can finally mature in terms of correctness, ease-of-use, and efficiency.
-We would like OpenMLS to be as useful as possible to those who consider end-to-end encryption with MLS. We are ready to evolve the library in the following areas:&lt;/p&gt;</description></item><item><title>OpenMLS v0.4 Release</title><link>https://blog.openmls.tech/posts/2022-02-28-v0_4-release/</link><pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2022-02-28-v0_4-release/</guid><description>&lt;p&gt;&lt;strong&gt;Today, we are excited to announce the release of &lt;a href="https://github.com/openmls/openmls/releases/tag/v0.4.0"&gt;v0.4 of OpenMLS&lt;/a&gt;! 🎉&lt;/strong&gt;&lt;/p&gt;
+We would like OpenMLS to be as useful as possible to those who consider end-to-end encryption with MLS. We are ready to evolve the library in the following areas:&lt;/p&gt;</description><content:encoded><![CDATA[<p>Today, we are releasing OpenMLS v0.5. This release has been a while in the making and covers substantial changes since the last release. We are grateful for <a href="https://openmls.tech/blog/2022-10-19-update/">the support of the Sovereign Tech Fund</a> towards this goal. These are some of the changes:</p>
+<ul>
+<li>The implementation caught up with the latest changes in the protocol specification. The last version was roughly based on draft 12. Since then, the protocol has iteratively evolved all the way through draft 20. The library now implements the wire format of messages and mechanisms specified in <a href="https://datatracker.ietf.org/doc/html/rfc9420">RFC 9420</a>.</li>
+<li>Extensive <a href="https://github.com/mlswg/mls-implementations">interoperability testing</a> has been done between OpenMLS, Cisco’s MLS++, and another closed-source MLS protocol implementation. The goal of this exercise was to validate the last set of changes in the specification and ascertain that all implementations implemented the specification correctly.</li>
+</ul>
+<h1 id="the-next-phase">The next phase</h1>
+<p>Until recently, the specification was a moving target and so was the implementation. Now that the specification is no longer subject to changes, the implementation can finally mature in terms of correctness, ease-of-use, and efficiency.
+We would like OpenMLS to be as useful as possible to those who consider end-to-end encryption with MLS. We are ready to evolve the library in the following areas:</p>
+<ul>
+<li>Stabilize the persistence format</li>
+<li>Improve and harmonize the API</li>
+<li>Improve efficiency</li>
+<li>Support new platforms</li>
+<li>Add optional features and extensions</li>
+</ul>
+<h1 id="looking-for-help">Looking for help?</h1>
+<p>If you are looking to use OpenMLS in your project the OpenMLS team can offer professional help with consulting or with implementing. We can accelerate the development of the items listed above or offer a more bespoke solution. Drop us an email at <a href="mailto:hello@openmls.tech">hello@openmls.tech</a>.</p>
+]]></content:encoded></item><item><title>OpenMLS v0.4 Release</title><link>https://blog.openmls.tech/posts/2022-02-28-v0_4-release/</link><pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate><author>hello@openmls.tech (OpenMLS)</author><guid>https://blog.openmls.tech/posts/2022-02-28-v0_4-release/</guid><description>&lt;p&gt;&lt;strong&gt;Today, we are excited to announce the release of &lt;a href="https://github.com/openmls/openmls/releases/tag/v0.4.0"&gt;v0.4 of OpenMLS&lt;/a&gt;! 🎉&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Some time has passed since we wrote about our &lt;a href="https://openmls.tech/blog/2021-10-19-openmls-04-roadmap/"&gt;roadmap to v0.4&lt;/a&gt;. In this post, we want to provide some insight into what has happened in the development of OpenMLS generally, but also relative to the goals we included in the roadmap.&lt;/p&gt;
-&lt;p&gt;Our high-level goal with v0.4 was to reach a state where we have an API stable enough and an implementation robust enough such that people interested in OpenMLS can start exploring it in the context of their own projects. However, this is not v1.0 and we can neither promise that the API won’t change in the future, nor do we advise using OpenMLS in production or indeed in any security-sensitive context. With this disclaimer out of the way, let’s see what has happened in these past months.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;Our high-level goal with v0.4 was to reach a state where we have an API stable enough and an implementation robust enough such that people interested in OpenMLS can start exploring it in the context of their own projects. However, this is not v1.0 and we can neither promise that the API won’t change in the future, nor do we advise using OpenMLS in production or indeed in any security-sensitive context. With this disclaimer out of the way, let’s see what has happened in these past months.&lt;/p&gt;</description><content:encoded><![CDATA[<p><strong>Today, we are excited to announce the release of <a href="https://github.com/openmls/openmls/releases/tag/v0.4.0">v0.4 of OpenMLS</a>! 🎉</strong></p>
+<p>Some time has passed since we wrote about our <a href="https://openmls.tech/blog/2021-10-19-openmls-04-roadmap/">roadmap to v0.4</a>. In this post, we want to provide some insight into what has happened in the development of OpenMLS generally, but also relative to the goals we included in the roadmap.</p>
+<p>Our high-level goal with v0.4 was to reach a state where we have an API stable enough and an implementation robust enough such that people interested in OpenMLS can start exploring it in the context of their own projects. However, this is not v1.0 and we can neither promise that the API won’t change in the future, nor do we advise using OpenMLS in production or indeed in any security-sensitive context. With this disclaimer out of the way, let’s see what has happened in these past months.</p>
+<h2 id="-milestones-reached">🎯 Milestones Reached</h2>
+<p>In our roadmap blog post, we documented a number of milestones that we were aiming for. Here is an overview of the milestones and how we reached them.</p>
+<h3 id="-high-level-api-and-documentation">📜 High-Level API and Documentation</h3>
+<p>After a lot of clean-up and re-design, OpenMLS now exposes the <code>MlsGroup</code> API, a high-level API that allows an application to create and manage a group, as well as parse, process, and validate MLS messages. The new API comes with the following changes:</p>
+<ul>
+<li>Major improvements to the documentation of the structs and functions we expose. The docs can be found <a href="https://docs.rs/crate/openmls/latest">here</a>.</li>
+<li>The way that errors are exposed by OpenMLS was completely refactored, such that callers can now usefully branch on the errors thrown by a function.</li>
+<li>Members of a group are now addressed using their <code>KeyPackageRef</code> (a hash of the key material representing the member in a given group) rather than their index in the group’s ratchet tree. This change required a major refactoring effort throughout our code-base, mirroring the preceding effort made on the spec-level to better abstract away the tree underlying MLS.</li>
+</ul>
+<h3 id="-user-manual">📚 User Manual</h3>
+<p>OpenMLS now has a <a href="https://openmls.tech/book">user manual</a> that contains guidance on how to use the <code>MlsGroup</code> API to perform MLS group operations, along with some explicit examples.</p>
+<h3 id="-crypto-provider">🔐 Crypto Provider</h3>
+<p>With v0.4 comes the <code>OpenMlsCryptoProvider</code> trait, that in turn wraps three other traits:</p>
+<ul>
+<li>the <code>OpenMlsCrypto</code> trait, on which OpenMLS relies for crypto implementations</li>
+<li>the <code>OpenMlsKeyStore</code> trait, which can be used to store and retrieve cryptographic key material</li>
+<li>the <code>OpenMlsRand</code> trait, which OpenMLS uses to generate randomness</li>
+</ul>
+<p>OpenMLS provides two implementations of the <code>OpenMlsCryptoProvider</code> trait, one based on the <a href="https://hacl-star.github.io/HaclValeEverCrypt.html">evercrypt</a> crypto provider and one on the <a href="https://github.com/RustCrypto">Rust Crypto</a> implementations. Both implementations rely on the <code>rand_chacha</code> crate for random number generation and a simple memory-based key store. See <a href="https://github.com/openmls/openmls/tree/main/traits">here</a> for more information on the traits and their implementations.</p>
+<p>With the traits in place, anyone can bring their own implementations to use with OpenMLS.</p>
+<h3 id="-supported-platforms">⚙️ Supported Platforms</h3>
+<p>OpenMLS is now compiled and tested for a number of 32 and 64-bit architectures:</p>
+<table>
+  <thead>
+      <tr>
+          <th>OS</th>
+          <th>Target</th>
+          <th>Build</th>
+          <th>Tests</th>
+          <th>CI</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>🐧</td>
+          <td>x86_64-unknown-linux-gnu</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>GitHub</td>
+      </tr>
+      <tr>
+          <td>🐧</td>
+          <td>i686-unknown-linux-gnu</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>GitHub</td>
+      </tr>
+      <tr>
+          <td>🪟</td>
+          <td>x86_64-pc-windows-msvc</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>GitHub</td>
+      </tr>
+      <tr>
+          <td>🪟</td>
+          <td>i686-pc-windows-msvc</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>GitHub</td>
+      </tr>
+      <tr>
+          <td>🍎</td>
+          <td>x86_64-apple-darwin</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>GitHub</td>
+      </tr>
+      <tr>
+          <td>🐧</td>
+          <td>aarch64-unknown-linux-gnu</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>drone.io</td>
+      </tr>
+      <tr>
+          <td>🍎</td>
+          <td>aarch64-apple-darwin</td>
+          <td>✅</td>
+          <td>❌</td>
+          <td>GitHub</td>
+      </tr>
+      <tr>
+          <td>🐧</td>
+          <td>aarch64-unknown-linux-gnu</td>
+          <td>✅</td>
+          <td>❌</td>
+          <td>GitHub</td>
+      </tr>
+      <tr>
+          <td>🤖</td>
+          <td>aarch64-linux-android</td>
+          <td>✅</td>
+          <td>❌</td>
+          <td>GitHub</td>
+      </tr>
+      <tr>
+          <td>🍎</td>
+          <td>aarch64-apple-ios</td>
+          <td>✅</td>
+          <td>❌</td>
+          <td>GitHub</td>
+      </tr>
+      <tr>
+          <td>🍎</td>
+          <td>aarch64-apple-ios-sim</td>
+          <td>✅</td>
+          <td>❌</td>
+          <td>GitHub</td>
+      </tr>
+      <tr>
+          <td>🕸️</td>
+          <td>wasm32-unknown-unknown</td>
+          <td>✅</td>
+          <td>❌</td>
+          <td>GitHub</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="-validation--authorization">💌 Validation &amp; Authorization</h3>
+<p>Making use of Rust’s strong type system, the <code>CoreGroup</code> layer underneath the <code>MlsGroup</code> API not only ensures that every incoming MLS message is syntactically and semantically validated according to the MLS spec, but also that messages created using the <code>MlsGroup</code> API fulfill these requirements. Before any messages are finally applied to a group, the API exposes the message to the application along with all information required to make its own policy decisions.</p>
+<p>All validation steps are <a href="https://openmls.tech/book/message_validation.html">indexed and documented</a>, as well as thoroughly tested.</p>
+<h2 id="-still-not-finished-mls-keeps-improving">🏗️ Still Not Finished: MLS Keeps Improving</h2>
+<p>For a while now, MLS has been “close to a working group last call”, but as implementations have matured and academic research on the protocol has progressed, issues and improvement proposals have been steadily trickling in. As a result, at the time of release of OpenMLS v0.4, there is still no working group last call and no additional draft of the specification has been released. Consequently, v0.4 is <a href="https://github.com/openmls/openmls/issues?q=is%3Aissue+is%3Aopen+label%3A%22mls-spec+change%22">not quite feature-complete</a>, but advances the implementation to draft 12+.</p>
+<h2 id="-more-improvements-under-the-hood">🧑🏼‍🔧 More Improvements Under the Hood</h2>
+<p>To achieve all of the milestones listed above, OpenMLS has seen many improvements under the hood.</p>
+<ul>
+<li>🌳 TreeSync: The tree implementation supporting OpenMLS has been re-written in a style that allows a diff-merge process and that exposes a clear abstraction boundary between the ratchet tree and the rest of the implementation.</li>
+<li>⚠️ Errors: OpenMLS now uses the <code>thiserror</code> crate throughout. Instead of module-wide error types, every function now returns an error enum that contains only the errors that can actually occur during the course of the function.</li>
+<li>😱 Almost panic-free: Although not quite there yet, we have made a lot of progress in transitioning to a panic-free implementation, such that even in the event of an implementation bug we can ensure that OpenMLS functions will not panic.</li>
+<li>⏱️ Parallelization: The performance-critical functions of OpenMLS around the encryption of key material to other group members is now parallelized using the <code>rayon</code> crate.</li>
+</ul>
+<h2 id="-future-work">💼 Future Work</h2>
+<p>The MLS specification is still in motion and there are many things that need to be improved before we can move towards the next OpenMLS release. If you have a suggestion, please let us know by joining our <a href="https://openmls.zulipchat.com">Zulip instance</a> or by filing an issue in our <a href="https://github.com/openmls/openmls">GitHub repo</a>. Or send us an email at <a href="mailto:hello@openmls.tech">hello@openmls.tech</a>.</p>
+<h2 id="-metrics">💯 Metrics</h2>
+<p>Here are some data points that give an overview of our activity since the release of the roadmap in October 2021.</p>
+<ul>
+<li><a href="https://github.com/openmls/openmls/issues?q=is%3Aissue+is%3Aclosed+updated%3A2021-10-01..2022-02-28+">Closed issues since October 2021: 188</a></li>
+<li><a href="https://github.com/openmls/openmls/pulls?q=is%3Apr+is%3Aclosed+updated%3A2021-10-01..2022-02-28+">Merged PRs since October 2021: 223</a></li>
+<li><a href="https://github.com/openmls/openmls/compare/b99b23c8b76c3f1bb74ec7fef931b9b6c119cd85...v0.4.0">327 (update) commits</a></li>
+</ul>
+]]></content:encoded></item></channel></rss>

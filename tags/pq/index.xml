@@ -1,1 +1,78 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Pq on OpenMLS</title><link>https://blog.openmls.tech/tags/pq/</link><description>Recent content in Pq on OpenMLS</description><generator>Hugo -- 0.155.2</generator><language>en-us</language><lastBuildDate>Thu, 11 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/tags/pq/index.xml" rel="self" type="application/rss+xml"/><item><title>Post-Quantum OpenMLS</title><link>https://blog.openmls.tech/posts/2024-04-11-pq-openmls/</link><pubDate>Thu, 11 Apr 2024 00:00:00 +0000</pubDate><guid>https://blog.openmls.tech/posts/2024-04-11-pq-openmls/</guid><description>Get started with post-quantum secure end-to-end encrypted with OpenMLS.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Pq on OpenMLS</title><link>https://blog.openmls.tech/tags/pq/</link><description>Recent content in Pq on OpenMLS</description><generator>Hugo -- 0.156.0</generator><language>en-us</language><managingEditor>hello@openmls.tech (OpenMLS)</managingEditor><webMaster>hello@openmls.tech (OpenMLS)</webMaster><lastBuildDate>Thu, 11 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.openmls.tech/tags/pq/index.xml" rel="self" type="application/rss+xml"/><item><title>Post-Quantum OpenMLS</title><link>https://blog.openmls.tech/posts/2024-04-11-pq-openmls/</link><pubDate>Thu, 11 Apr 2024 00:00:00 +0000</pubDate><author>hello@openmls.tech (OpenMLS)</author><guid>https://blog.openmls.tech/posts/2024-04-11-pq-openmls/</guid><description>Get started with post-quantum secure end-to-end encrypted with OpenMLS.</description><content:encoded><![CDATA[<p>OpenMLS now offers security against harvest-now-decrypt-later (HNDL) quantum adversaries.</p>
+<p>In <a href="https://github.com/openmls/openmls/pull/1546">#1546</a> we merged support for the <a href="https://www.ietf.org/archive/id/draft-connolly-cfrg-xwing-kem-02.html">X-Wing KEM draft</a>, which is an early draft for securely combining elliptic-curve-based Diffie-Hellman with ML-KEM. In particular, OpenMLS now supports the ciphersuite MLS_256_XWING_CHACHA20POLY1305_SHA256_Ed25519 with ciphersuite 0x004D. There is no IANA code-point for this ciphersuite yet, such that interoperability may not be guaranteed. We work with other implementers towards interoperability of this ciphersuite.</p>
+<p>The implementation uses Cryspen’s <a href="https://cryspen.com/post/ml-kem-verification/">formally verified ML-KEM</a> and x25519 implementations from <a href="https://github.com/cryspen/libcrux/">libcrux</a>. The implementations are not only formally verified for correctness, secret independence, and memory safety, but also amongst the fastest implementations. Users should not notice any significant performance differences when using this new ciphersuite.
+The threat of HNDL attackers requires applications to switch to post-quantum secure mechanisms now, just like <a href="https://signal.org/blog/pqxdh/">Signal</a> and <a href="https://security.apple.com/blog/imessage-pq3/">iMessage</a> did already. OpenMLS offers a simple way to achieve security against HNDL attackers and is ready to use.</p>
+<h2 id="performance">Performance</h2>
+<p>While the new ML-KEM mechanism is very efficient, it requires larger messages and because the ciphersuite used is hybrid (i.e. a combination of ML-KEM the classical x25519 KEM), the workload increases.</p>
+<p>The following tables give an overview of the performance and message sizes.
+One can clearly see an overhead from the post-quantum scheme.
+While the computation complexity is not too high, and more efficient implementations of ML-KEM may be used, the communication complexity increases significantly due to the larger key and message sizes in ML-KEM.</p>
+<h5 id="computation">Computation</h5>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>X-Wing + x25519</th>
+          <th>x25519</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Create Key Package</td>
+          <td>273.39 µs</td>
+          <td>138.24 µs</td>
+      </tr>
+      <tr>
+          <td>Create Welcome</td>
+          <td>665.77 µs</td>
+          <td>366.23 µs</td>
+      </tr>
+      <tr>
+          <td>Join a group</td>
+          <td>733.22 µs</td>
+          <td>313.37 µs</td>
+      </tr>
+      <tr>
+          <td>Self update</td>
+          <td>650.77 µs</td>
+          <td>294.49 µs</td>
+      </tr>
+  </tbody>
+</table>
+<h5 id="communication">Communication</h5>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>X-Wing + x25519</th>
+          <th>x25519</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Key package size</td>
+          <td>2669 Bytes</td>
+          <td>299 Bytes</td>
+      </tr>
+      <tr>
+          <td>Welcome size</td>
+          <td>5457 Bytes</td>
+          <td>716 Bytes</td>
+      </tr>
+      <tr>
+          <td>Ratchet tree size</td>
+          <td>4007 Bytes</td>
+          <td>408 Bytes</td>
+      </tr>
+      <tr>
+          <td>Self update size</td>
+          <td>3954 Bytes</td>
+          <td>495 Bytes</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="next-steps">Next Steps</h2>
+<p>Using X-Wing as KEM in MLS is the easiest solution to achieve HNDL security for secure group messaging, or any use case that uses the state synchronization protocols specified in MLS.</p>
+<p>However, X-Wing is designed as a drop-in KEM scheme with very conservative security guarantees. In the context of MLS, there may be more efficient ways to integrate HNDL protection, for example, by making use of more lightweight KEM combiners, or by other means specific to MLS. In the context of the MLS working group, we are actively discussing multiple proposals for improved HNDL protection. Once more promising candidates are available, we will publish a follow-up of this post.</p>
+<p>A new version of OpenMLS will be released later this month, which will include this new, post-quantum secure, ciphersuite.</p>
+]]></content:encoded></item></channel></rss>
